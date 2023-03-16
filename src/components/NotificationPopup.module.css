@@ -1,0 +1,148 @@
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-8xs);
+    background-color: var(--white1);
+    box-shadow: var(--shadow-6);
+    width: 382px;
+    height: 80px;
+  }
+  .seeDetails {
+    position: relative;
+    line-height: 14.4px;
+  }
+  .hideWrapper,
+  .seeDetailsWrapper {
+    position: absolute;
+    height: 12.24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .seeDetailsWrapper {
+    top: 20px;
+    left: 295px;
+    color: var(--primary);
+  }
+  .hideWrapper {
+    top: 53px;
+    left: 312px;
+  }
+  .markJohnJust,
+  .newRfq {
+    position: absolute;
+    top: 36.12px;
+    left: 56px;
+    line-height: 14.4px;
+    text-align: left;
+    display: inline-block;
+    width: 202px;
+    height: 32px;
+  }
+  .newRfq {
+    top: 9.8px;
+    font-size: var(--body-text-size);
+    line-height: 19.2px;
+    color: var(--black1);
+    width: 70px;
+    height: 16.33px;
+  }
+  .notification3Child,
+  .notification3Item {
+    position: absolute;
+    left: 270.5px;
+    box-sizing: border-box;
+  }
+  .notification3Child {
+    top: -0.5px;
+    border-right: 1px solid var(--gray-200);
+    width: 1px;
+    height: 81px;
+  }
+  .notification3Item {
+    top: 41.95px;
+    border-top: 1px solid var(--gray-200);
+    width: 112px;
+    height: 1px;
+  }
+  .vectorIcon,
+  .vectorIcon1,
+  .vectorIcon2 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .vectorIcon1,
+  .vectorIcon2 {
+    height: 68.75%;
+    width: 74.2%;
+    top: 9.37%;
+    right: 12.9%;
+    bottom: 21.88%;
+    left: 12.9%;
+  }
+  .vectorIcon2 {
+    height: 21.88%;
+    width: 31.25%;
+    top: 71.88%;
+    right: 34.38%;
+    bottom: 6.25%;
+    left: 34.38%;
+  }
+  .div {
+    position: absolute;
+    height: 88.24%;
+    width: 41.18%;
+    top: 5.88%;
+    left: 29.41%;
+    line-height: 14.4px;
+    display: inline-block;
+  }
+  .ellipseParent {
+    position: absolute;
+    height: 53.13%;
+    width: 53.13%;
+    top: 3.7%;
+    right: 6.25%;
+    bottom: 43.18%;
+    left: 40.63%;
+  }
+  .frame {
+    position: absolute;
+    top: 11.43px;
+    left: 12px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    text-align: center;
+    color: var(--white1);
+  }
+  .notification3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 382px;
+    height: 80px;
+  }
+  .notification {
+    position: relative;
+    width: 382px;
+    height: 80px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    text-align: right;
+    font-size: var(--caption-size);
+    color: var(--grey-dark);
+    font-family: var(--h21);
+  }
+  

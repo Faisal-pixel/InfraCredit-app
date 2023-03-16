@@ -1,0 +1,131 @@
+.sapphireprocure {
+    position: relative;
+    line-height: 24px;
+    background: linear-gradient(90deg, #227cbf, #47b65c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .groupIcon {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+  .infracredit1,
+  .sapphireprocureParent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .infracredit1 {
+    overflow: hidden;
+    flex-direction: column;
+    padding: var(--padding-xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .login,
+  .pleaseSelectYour {
+    position: absolute;
+    top: 0;
+    left: 248.3px;
+    line-height: 57.6px;
+    font-weight: 800;
+    display: inline-block;
+    width: 143.41px;
+  }
+  .pleaseSelectYour {
+    top: 68px;
+    left: 0;
+    font-size: var(--h4-size);
+    line-height: 24px;
+    font-weight: 600;
+    color: var(--primary);
+    width: 640px;
+  }
+  .loginParent {
+    align-self: stretch;
+    position: relative;
+    height: 92px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: var(--h1-size);
+    color: var(--black1);
+  }
+  .button1 {
+    position: relative;
+    line-height: 19.2px;
+  }
+  .button,
+  .groupParent {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+  }
+  .button {
+    border-radius: var(--br-3xs);
+    background: linear-gradient(90deg, #227cbf, #47b65c);
+    height: 50px;
+    flex-shrink: 0;
+    flex-direction: row;
+    padding: var(--padding-3xs);
+    box-sizing: border-box;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .groupParent {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-11xl);
+    font-size: var(--body-text-size);
+    font-family: var(--h21);
+  }
+  .gelImages31Icon,
+  .mainHeader {
+    align-self: stretch;
+    flex: 1;
+    overflow: hidden;
+  }
+  .mainHeader {
+    background-color: var(--white1);
+    box-shadow: var(--effect1);
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-xl) 40px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 276px;
+  }
+  .gelImages31Icon {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  .loginOptions,
+  .section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .section {
+    align-self: stretch;
+    flex: 1;
+    background: linear-gradient(90deg, #227cbf, #47b65c);
+    flex-direction: column;
+  }
+  .loginOptions {
+    position: relative;
+    background-color: #344178;
+    width: 100%;
+    height: 1024px;
+    overflow: hidden;
+    flex-direction: row;
+    text-align: left;
+    font-size: var(--font-size-11xl);
+    color: var(--white1);
+    font-family: var(--font-aladin);
+  }
+  
