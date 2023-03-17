@@ -9,6 +9,8 @@ import LoginOptions from "./pages/LoginOptions";
 import { useEffect } from "react";
 import BidderDashboard from "./pages/BidderDashboard";
 
+import "./App.css"
+
 function App() {
   const action = useNavigationType();
   const location = useLocation();

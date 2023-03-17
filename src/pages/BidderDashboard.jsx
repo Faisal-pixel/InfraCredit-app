@@ -6,6 +6,8 @@ import PortalPopup from "../components/PortalPopup";
 import NotificationPopup from "../components/NotificationPopup";
 
 import styled from "styled-components";
+import UserGreetings from "../components/UserGreetings";
+
 
 const BidderDashboard = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
@@ -37,6 +39,9 @@ const BidderDashboard = () => {
                     openNotification={openNotification}
                     onContainerClick={onContainerClick}
                 />
+                <div className="body">
+                    <UserGreetings />
+                </div>
             </BidderDashboardStyled>
 
             {isNotificationOpen && (

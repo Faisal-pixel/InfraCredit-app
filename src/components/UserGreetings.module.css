@@ -1,0 +1,31 @@
+.heyJohn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 24px;
+    font-weight: 600;
+  }
+  .weWereJust {
+    position: absolute;
+    top: 4px;
+    left: 107px;
+    font-size: var(--body-text-size);
+    line-height: 19.2px;
+    color: var(--grey-dark);
+  }
+  .heyJohnParent {
+    position: relative;
+    width: 619px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+  .welcomeNote {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 var(--padding-3xs);
+    align-items: center;
+    justify-content: flex-start;
+    font-size: var(--h4-size);
+    color: var(--black1);
+  }
