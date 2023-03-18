@@ -11,3 +11,7 @@
   padding: var(--padding-11xl) var(--padding-31xl);
   gap: var(--gap-xl);
 }
+
+.page-container {
+  background-color: var(--grey-light);
+}

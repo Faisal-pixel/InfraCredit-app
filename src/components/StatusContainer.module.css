@@ -1,0 +1,56 @@
+.activityStatus {
+  position: relative;
+  line-height: 28.8px;
+  font-weight: 500;
+}
+.b,
+.new {
+  position: relative;
+  line-height: 19.2px;
+}
+.b {
+  font-size: var(--h21-size);
+  line-height: 43.2px;
+  color: var(--white1);
+}
+.stats1 {
+  background-color: var(--primary);
+  border: 1px solid var(--white1);
+  box-sizing: border-box;
+  width: 216.67px;
+  height: 120px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-xl) var(--padding-mini);
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+}
+.approved {
+  position: relative;
+  line-height: 19.2px;
+  display: inline-block;
+  width: 102px;
+}
+.stats,
+.stats1Parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: var(--body-text-size);
+  color: var(--grey-light);
+}
+.stats {
+  border-radius: var(--br-3xs);
+  background-color: var(--white1);
+  flex-direction: column;
+  padding: var(--padding-xl) var(--padding-xl) var(--padding-11xl);
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--h3-size);
+  color: var(--secondary1);
+  font-family: var(--h21);
+}

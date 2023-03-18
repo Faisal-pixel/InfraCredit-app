@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 import MainHeader from "../components/MainHeader";
 import PortalPopup from "../components/PortalPopup";
 import NotificationPopup from "../components/NotificationPopup";
-
-import styled from "styled-components";
 import UserGreetings from "../components/UserGreetings";
 import DashboardNavigation from "../components/DashboardNavigation";
+
+import styled from "styled-components";
+import ActivityStatus from "../components/ActivityStatus";
+
+
 
 
 
@@ -41,9 +44,10 @@ const BidderDashboard = () => {
                     openNotification={openNotification}
                     onContainerClick={onContainerClick}
                 />
-                <div className="body">
+                <div className="body page-container">
                     <UserGreetings />
                     <DashboardNavigation dashboard dashboardActive requestForQuotes purchaseContracts issueResolution report profile/>
+                    <ActivityStatus />
                 </div>
             </BidderDashboardStyled>
 
