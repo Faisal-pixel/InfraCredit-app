@@ -7,6 +7,8 @@ import NotificationPopup from "../components/NotificationPopup";
 
 import styled from "styled-components";
 import UserGreetings from "../components/UserGreetings";
+import DashboardNavigation from "../components/DashboardNavigation";
+
 
 
 const BidderDashboard = () => {
@@ -41,6 +43,7 @@ const BidderDashboard = () => {
                 />
                 <div className="body">
                     <UserGreetings />
+                    <DashboardNavigation dashboard dashboardActive requestForQuotes purchaseContracts issueResolution report profile/>
                 </div>
             </BidderDashboardStyled>
 
