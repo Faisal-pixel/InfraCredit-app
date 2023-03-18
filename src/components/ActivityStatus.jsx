@@ -1,37 +1,23 @@
 import React from "react";
 import styles from "./StatusContainer.module.css";
 
-const ActivityStatus = () => {
+const ActivityStatus = ({activityStatusData}) => {
     return (
         <div className={styles.stats}>
-                        <div className={styles.activityStatus}>Activity Status</div>
-                        <div className={styles.stats1Parent}>
-                            <div className={styles.stats1}>
-                                <div className={styles.new}>New</div>
-                                <b className={styles.b}>5</b>
+        <div className={styles.activityStatus}>Activity Status</div>
+            <div className={styles.stats1Parent}>
+                {
+                    activityStatusData.map((status, index) => (
+                        
+                            <div key={index} className={styles.stats1}>
+                                <div className={styles.new}>{status.activityStatusTitle}</div>
+                                <b className={styles.b}>{status.ActivityStatusValue}</b>
                             </div>
-                            <div className={styles.stats1}>
-                                <div className={styles.new}>Awaiting Approval</div>
-                                <b className={styles.b}>31</b>
-                            </div>
-                            <div className={styles.stats1}>
-                                <div className={styles.approved}>Approved</div>
-                                <b className={styles.b}>51</b>
-                            </div>
-                            <div className={styles.stats1}>
-                                <div className={styles.new}>In Progress</div>
-                                <b className={styles.b}>10</b>
-                            </div>
-                            <div className={styles.stats1}>
-                                <div className={styles.new}>Completed</div>
-                                <b className={styles.b}>135</b>
-                            </div>
-                            <div className={styles.stats1}>
-                                <div className={styles.new}>Pending Rating</div>
-                                <b className={styles.b}>2</b>
-                            </div>
-                        </div>
-                    </div>
+                        
+                        ))
+                }
+            </div>
+        </div>
     )
 }
 

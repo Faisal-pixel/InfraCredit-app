@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from "react";
+import React, {useState, useCallback, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 //IMPORT COMPONENTS
 import MainHeader from "../components/MainHeader";
@@ -11,11 +11,37 @@ import styled from "styled-components";
 import ActivityStatus from "../components/ActivityStatus";
 
 
-
+const activityStatusData = [
+    {
+        activityStatusTitle: "New",
+        ActivityStatusValue: 5
+    },
+    {
+        activityStatusTitle: "Awaiting Approval",
+        ActivityStatusValue: 31
+    },
+    {
+        activityStatusTitle: "Approved",
+        ActivityStatusValue: 51
+    },
+    {
+        activityStatusTitle: "In Progress",
+        ActivityStatusValue: 10
+    },
+    {
+        activityStatusTitle: "Completed",
+        ActivityStatusValue: 135
+    },
+    {
+        activityStatusTitle: "Pending Rating",
+        ActivityStatusValue: 2
+    },
+]
 
 
 const BidderDashboard = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
+    const [activityStatusDataState, setActivityStatusDataState] = useState([]);
     const navigate = useNavigate();
 
     const openNotification = useCallback(() => {
@@ -29,6 +55,10 @@ const BidderDashboard = () => {
       const onContainerClick = useCallback(() => {
         navigate("/");
       }, [navigate]);
+
+      useEffect(() => {
+        setActivityStatusDataState(activityStatusData)
+      }, [])
     return(
         <>
             <BidderDashboardStyled>
@@ -47,7 +77,7 @@ const BidderDashboard = () => {
                 <div className="body page-container">
                     <UserGreetings />
                     <DashboardNavigation dashboard dashboardActive requestForQuotes purchaseContracts issueResolution report profile/>
-                    <ActivityStatus />
+                    <ActivityStatus activityStatusData={activityStatusDataState} />
                 </div>
             </BidderDashboardStyled>
 
