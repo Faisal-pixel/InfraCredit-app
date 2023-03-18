@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./StatusContainer.module.css";
+import styles from "./ActivityStatus.module.css";
 
 const ActivityStatus = ({activityStatusData}) => {
     return (

@@ -5,11 +5,9 @@ import {
   useLocation,
 } from "react-router-dom";
 import LoginOptions from "./pages/LoginOptions";
-
 import { useEffect } from "react";
-import BidderDashboard from "./pages/BidderDashboard";
-
 import "./App.css"
+import BidderDashboardHome from "./pages/Bidder/BidderDashboardHome";
 
 function App() {
   const action = useNavigationType();
@@ -154,8 +152,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<LoginOptions />} />
-      <Route path="/bidder-dashboard" element={<BidderDashboard />} />
-      
+      <Route path="/bidder-dashboard/*" element={<BidderDashboardHome />} />
     </Routes>
   );
 }

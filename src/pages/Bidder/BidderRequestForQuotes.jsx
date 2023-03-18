@@ -1,31 +1,12 @@
 import React, {useState, useCallback, useEffect} from "react";
-import {  useNavigate } from "react-router-dom";
-//IMPORT COMPONENTS
-import MainHeader from "../components/MainHeader";
-import PortalPopup from "../components/PortalPopup";
-import NotificationPopup from "../components/NotificationPopup";
-import UserGreetings from "../components/UserGreetings";
-import DashboardNavigation from "../components/DashboardNavigation";
+import { useNavigate } from "react-router-dom";
+import MainHeader from "../../components/MainHeader";
+import UserGreetings from "../../components/UserGreetings";
+import PortalPopup from "../../components/PortalPopup";
+import NotificationPopup from "../../components/NotificationPopup";
+import DashboardNavigation from "../../components/DashboardNavigation";
+import RecentRequisitionContainer from "../../components/RecentRequisitionContainer";
 
-import styled from "styled-components";
-import ActivityStatus from "../components/ActivityStatus";
-import RecentRequisitionContainer from "../components/RecentRequisitionContainer";
-
-
-const activityStatusData = [
-    {
-        activityStatusTitle: "FRQ",
-        ActivityStatusValue: 5
-    },
-    {
-        activityStatusTitle: "RFP",
-        ActivityStatusValue: 31
-    },
-    {
-        activityStatusTitle: "Contracts",
-        ActivityStatusValue: 2
-    }
-]
 
 const myRecentRequisitionsData = [
     {
@@ -72,10 +53,8 @@ const myRecentRequisitionsData = [
     },
 ]
 
-
-const BidderDashboard = () => {
+const BidderRequestForQuotes = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
-    const [activityStatusDataState, setActivityStatusDataState] = useState([]);
     const [myRecentRequisitionsDataState, setMyRecentRequisitionsDataState] = useState([])
     const navigate = useNavigate();
 
@@ -92,15 +71,12 @@ const BidderDashboard = () => {
       }, [navigate]);
 
       useEffect(() => {
-        setActivityStatusDataState(activityStatusData);
         setMyRecentRequisitionsDataState(myRecentRequisitionsData)
       }, [])
 
-      console.log(myRecentRequisitionsDataState)
-    return(
+    return (
         <>
-            <BidderDashboardStyled>
-                <MainHeader
+            <MainHeader
                     dimensions="/group.svg"
                     dimensionsText="/vector2.svg"
                     dimensionsCode="/vector3.svg"
@@ -112,19 +88,17 @@ const BidderDashboard = () => {
                     openNotification={openNotification}
                     onContainerClick={onContainerClick}
                 />
-                <div className="body page-container">
+
+            <div className="body page-container">
                     <UserGreetings />
-                    <DashboardNavigation dashboard dashboardActive requestForQuotes purchaseContracts issueResolution report profile/>
-                    <ActivityStatus activityStatusData={activityStatusDataState} />
+                    <DashboardNavigation dashboard requestForQuotes requestForQuotesActive purchaseContracts issueResolution report profile/>
                     <RecentRequisitionContainer
                     myRecentRequisitionsDataState={myRecentRequisitionsDataState}
-                    recentRequisitionText="My Recent Requisitions"
+                    recentRequisitionText="My Recent Bids"
                     pending_svg_icon="/ellipse-84.svg"
                     completed_svg_icon="/ellipse-85.svg"
                      />
                 </div>
-            </BidderDashboardStyled>
-
             {isNotificationOpen && (
                 <PortalPopup
                 
@@ -139,6 +113,4 @@ const BidderDashboard = () => {
     )
 }
 
-const BidderDashboardStyled = styled.div``;
-
-export default BidderDashboard;
+export default BidderRequestForQuotes
