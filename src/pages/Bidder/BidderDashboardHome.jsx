@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import BidderDashboard from "../BidderDashboard";
+import BidderDashboard from "./BidderDashboard";
 import BidderRequestForQuotes from "./BidderRequestForQuotes";
 
 const BidderDashboardHome = () => {

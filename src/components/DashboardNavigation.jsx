@@ -9,11 +9,14 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
     const onRequestForQuotesClick = useCallback(() => {
         navigate("/bidder-dashboard/bidder-request-for-qoutes")
     }, [navigate])
+    const onDashboardClick = useCallback(() => {
+        navigate("/bidder-dashboard")
+    }, [navigate])
 
     return (
         <div className={styles.tabMenu}>
             <div className={styles.topMenu}>
-              <div className={`${dashboard ? styles.div5 : styles.div} ${dashboardActive && styles.div7}`}>
+              <div onClick={onDashboardClick} className={`${dashboard ? styles.div5 : styles.div} ${dashboardActive && styles.div7}`}>
                 <div className={styles.dashboard}>Dashboard</div>
                 <div className={styles.child} />
               </div>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import styles from "./RecentRequisitionContainer.module.css";
 import SearchButton from "./SearchButton";
+import SearchInput from "./SearchInput";
 
 const RecentRequisitionContainer = ({
   recentRequisitionText,
@@ -15,13 +16,12 @@ const RecentRequisitionContainer = ({
   return (
     <div className={styles.table}>
       <div className={styles.recentRequisitionsWrapper}>
-        <div className={styles.recentRequisitions}>{recentRequisitionText}
+        <div className={styles.recentRequisitions}>{recentRequisitionText}</div>
           <SearchFilterDivStyled>
-            <input type="search" />
+            <SearchInput placeholder="Search" />
             <SearchButton />
             <img className={styles.frameIcon} alt="" src="/frame3.svg" />
           </SearchFilterDivStyled>
-        </div>
       </div>
       <div className={styles.headerParent}>
         <div className={styles.header}>
@@ -69,6 +69,8 @@ const SearchFilterDivStyled = styled.div`
   width: 560px;
   height: 40px;
   flex-shrink: 0;
+  justify-content: space-between;
+  gap: 1rem;
 `;
 
 export default RecentRequisitionContainer;

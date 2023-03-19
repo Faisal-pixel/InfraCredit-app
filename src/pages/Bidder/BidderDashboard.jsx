@@ -1,15 +1,15 @@
 import React, {useState, useCallback, useEffect} from "react";
 import {  useNavigate } from "react-router-dom";
 //IMPORT COMPONENTS
-import MainHeader from "../components/MainHeader";
-import PortalPopup from "../components/PortalPopup";
-import NotificationPopup from "../components/NotificationPopup";
-import UserGreetings from "../components/UserGreetings";
-import DashboardNavigation from "../components/DashboardNavigation";
+import MainHeader from "../../components/MainHeader";
+import PortalPopup from "../../components/PortalPopup";
+import NotificationPopup from "../../components/NotificationPopup";
+import UserGreetings from "../../components/UserGreetings";
+import DashboardNavigation from "../../components/DashboardNavigation";
 
 import styled from "styled-components";
-import ActivityStatus from "../components/ActivityStatus";
-import RecentRequisitionContainer from "../components/RecentRequisitionContainer";
+import ActivityStatus from "../../components/ActivityStatus";
+import RecentRequisitionContainer from "../../components/RecentRequisitionContainer";
 
 
 const activityStatusData = [
