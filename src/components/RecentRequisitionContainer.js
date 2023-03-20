@@ -9,6 +9,7 @@ const RecentRequisitionContainer = ({
   pending_svg_icon,
   completed_svg_icon,
   onListContainerClick,
+  shouldIncludeStatusSection
   
 }) => {
 
@@ -34,9 +35,11 @@ const RecentRequisitionContainer = ({
           <div className={styles.title2}>
             <div className={styles.description}>{`Expiration Date & Time`}</div>
           </div>
-          <div className={styles.title1}>
+          {
+            shouldIncludeStatusSection && <div className={styles.title1}>
             <div className={styles.rfqNo}>Status</div>
           </div>
+          }
         </div>
         {myRecentRequisitionsDataState.map((myRecentRequisitionsData) => {
 
@@ -51,10 +54,10 @@ const RecentRequisitionContainer = ({
                 {/* 2022-01-28 14:53 GMT+1 */}
                 {expDateAndTime}
               </div>
-              <div className={status ? styles.div4 : styles.div}>
+              {shouldIncludeStatusSection && <div className={status ? styles.div4 : styles.div}>
                 <img className={styles.child} alt="" src={status ? completed_svg_icon : pending_svg_icon} />
                 <div className={status ? styles.completed : styles.pending}>{status ? "Completed" : "Pending"}</div>
-              </div>
+              </div>}
             </div>
           )
         })}
