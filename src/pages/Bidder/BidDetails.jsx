@@ -11,6 +11,7 @@ import BreadCrumbsNavigation from "../../components/BreadCrumbsNavigation";
 import BreadCrumbsFrameIcon from "../../components/BreadCrumbsFrameIcon";
 import BreadCrumbsNextName from "../../components/BreadCrumbsNextName";
 import SearchButton from "../../components/SearchButton";
+import DownloadButton from "../../components/DownloadButton";
 
 const BidDetails = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
@@ -48,7 +49,7 @@ const BidDetails = () => {
                 </BreadCrumbsNavigation>
 
                 <BidDetailsButtons>
-                    <SearchButton />
+                    <DownloadButton buttonName="Download RFQ" />
                     <SearchButton />
                 </BidDetailsButtons>
             </BidDetailsStyled>
