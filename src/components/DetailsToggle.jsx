@@ -4,8 +4,8 @@ import styled from "styled-components";
 const DetailsToggle = ({children, title}) => {
     const [toggle, setToggle] = useState(false)
     return (
-        <DetailsToggleStyled onClick={() => setToggle(!toggle)}>
-            <div className="generalParent">
+        <DetailsToggleStyled >
+            <div className="generalParent" onClick={() => setToggle(!toggle)}>
                     <div className="general">
                         <div className="toggleText">{title}</div>
                         <img className="frameIcon" alt="" src="/frame64.svg" />

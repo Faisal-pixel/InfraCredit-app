@@ -14,7 +14,7 @@ import RecentRequisitionContainer from "../../components/RecentRequisitionContai
 
 const activityStatusData = [
     {
-        activityStatusTitle: "FRQ",
+        activityStatusTitle: "RFQ",
         ActivityStatusValue: 5
     },
     {
@@ -118,6 +118,7 @@ const BidderDashboard = () => {
                     <ActivityStatus activityStatusData={activityStatusDataState} />
                     <RecentRequisitionContainer
                     myRecentRequisitionsDataState={myRecentRequisitionsDataState}
+                    shouldIncludeStatusSection
                     recentRequisitionText="My Recent Requisitions"
                     pending_svg_icon="/ellipse-84.svg"
                     completed_svg_icon="/ellipse-85.svg"

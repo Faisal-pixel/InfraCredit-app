@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const SearchInput = ({placeholder}) => {
+const SearchInput = ({placeholder, searchTerm, handleChange}) => {
+    
     return (
         <>
-            <SearchInputStyled type="search" placeholder={placeholder} />
+            <SearchInputStyled type="search" placeholder={placeholder} value={searchTerm} onChange={handleChange} />
         </>
     )
 }

@@ -1,5 +1,5 @@
 import React, {useState, useCallback} from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import MainHeader from "../../components/MainHeader";
 import PortalPopup from "../../components/PortalPopup";
 import NotificationPopup from "../../components/NotificationPopup";
@@ -10,12 +10,13 @@ import styled from "styled-components";
 import BreadCrumbsNavigation from "../../components/BreadCrumbsNavigation";
 import BreadCrumbsFrameIcon from "../../components/BreadCrumbsFrameIcon";
 import BreadCrumbsNextName from "../../components/BreadCrumbsNextName";
-import SearchButton from "../../components/SearchButton";
 import DownloadButton from "../../components/DownloadButton";
 import GeneralButton from "../../components/GeneralButton";
 import DetailsToggle from "../../components/DetailsToggle";
 
 const BidDetails = () => {
+    const location = useLocation();
+    const {listData} = location.state;
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const navigate = useNavigate();
     const openNotification = useCallback(() => {
@@ -60,7 +61,7 @@ const BidDetails = () => {
                         <div className="top">
                             <div className="rfq-no-parent">
                                 <p>RFQ No:</p>
-                                <div>RFQ21547</div>
+                                <div>{`${listData.rfqNo}:`}</div>
                             </div>
                             <div className="creation-date-parent">
                                 <p>Creation Date:</p>

@@ -1,3 +1,5 @@
+import React, {useCallback, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import styles from "./RecentRequisitionContainer.module.css";
 import SearchButton from "./SearchButton";
@@ -8,19 +10,35 @@ const RecentRequisitionContainer = ({
   myRecentRequisitionsDataState,
   pending_svg_icon,
   completed_svg_icon,
-  onListContainerClick,
   shouldIncludeStatusSection
   
 }) => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+    const handleChange = (e) => {
+        setSearchTerm(e.target.value);   
+    }
+    const onSearchButtonClicked = (e) => {
+      setSearchTerm(searchTerm);
+    }
+    const filteredMyRecentRequisitionDataState = myRecentRequisitionsDataState.filter(data => {
+      return (
+        data.rfqNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      data.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      data.expDateAndTime.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    })
 
-  console.log(myRecentRequisitionsDataState)
+  const onListContainerClick = useCallback((myRecentRequisitionsData) => {
+    navigate("/bidder-dashboard/bid-details", {state: {listData: myRecentRequisitionsData}});
+  }, [navigate]);
   return (
     <div className={styles.table}>
       <div className={styles.recentRequisitionsWrapper}>
         <div className={styles.recentRequisitions}>{recentRequisitionText}</div>
           <SearchFilterDivStyled>
-            <SearchInput placeholder="Search" />
-            <SearchButton />
+            <SearchInput placeholder="Search" searchTerm={searchTerm} handleChange={handleChange}/>
+            <SearchButton onClick={onSearchButtonClicked}/>
             <img className={styles.frameIcon} alt="" src="/frame3.svg" />
           </SearchFilterDivStyled>
       </div>
@@ -41,11 +59,11 @@ const RecentRequisitionContainer = ({
           </div>
           }
         </div>
-        {myRecentRequisitionsDataState.map((myRecentRequisitionsData) => {
+        {filteredMyRecentRequisitionDataState.map((myRecentRequisitionsData) => {
 
           const {rfqNo, description, expDateAndTime,status} = myRecentRequisitionsData;
           return(
-            <div className={styles.list} onClick={onListContainerClick}>
+            <div className={styles.list} onClick={() => {onListContainerClick(myRecentRequisitionsData)}}>
               <div className={styles.sd2568}>{rfqNo}</div>
               <div
                 className={styles.buildingMaintenance}

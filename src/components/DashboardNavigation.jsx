@@ -7,7 +7,7 @@ import styles from "./DashboardNavigation.module.css";
 const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActive, bidders, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, issueResolution, report, profile, purchaseDocuments, myRequisitions, teamRequisitions, myPurchaseContracts}) => {
     const navigate = useNavigate();
     const onRequestForQuotesClick = useCallback(() => {
-        navigate("/bidder-dashboard/bidder-request-for-qoutes")
+        navigate("/bidder-dashboard/bidder-request-for-quotes")
     }, [navigate])
     const onDashboardClick = useCallback(() => {
         navigate("/bidder-dashboard")
@@ -63,7 +63,7 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
                 <div className={styles.dashboard}>Team Requisitions</div>
                 <div className={styles.child} />
               </div>
-              <div className={purchaseContracts ? styles.div5 : styles.div}>
+              <div className={myPurchaseContracts ? styles.div5 : styles.div}>
                 <div className={styles.dashboard}>My Purchase Contracts</div>
                 <div className={styles.child} />
               </div>
