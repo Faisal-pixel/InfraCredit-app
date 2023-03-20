@@ -1,0 +1,30 @@
+.breadcrumb {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-3xs);
+  }
+
+  .dashboard {
+    position: relative;
+    line-height: 14.4px;
+    cursor: pointer;
+  }
+
+  .frameIcon {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .myRequisition,
+.requisitionDetails {
+  position: relative;
+  line-height: 14.4px;
+}
+.requisitionDetails {
+  color: var(--primary);
+}
