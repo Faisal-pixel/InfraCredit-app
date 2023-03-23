@@ -12,8 +12,7 @@ const purchaseContractsData = [
     {
         rfqNo: "PO2568",
         description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        
+        expDateAndTime: "2022-01-28 14:53 GMT+1",  
     },
     {
         rfqNo: "PO2568",
@@ -62,9 +61,11 @@ const purchaseContractsData = [
     },
 ]
 
+
+
 const BidderPurchaseContracts = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
-    const [myRecentRequisitionsDataState, setMyRecentRequisitionsDataState] = useState([])
+    const [myPurchaseContractDataState, setMyPurchaseContractDataState] = useState([])
     const navigate = useNavigate();
 
     const openNotification = useCallback(() => {
@@ -80,8 +81,10 @@ const BidderPurchaseContracts = () => {
       }, [navigate]);
 
       useEffect(() => {
-        setMyRecentRequisitionsDataState(purchaseContractsData)
+        setMyPurchaseContractDataState(purchaseContractsData)
       }, [])
+      
+      
 
     return (
         <>
@@ -102,10 +105,11 @@ const BidderPurchaseContracts = () => {
                     <UserGreetings />
                     <DashboardNavigation dashboard requestForQuotes purchaseContracts purchaseContractsActive issueResolution report profile/>
                     <RecentRequisitionContainer
-                    myRecentRequisitionsDataState={myRecentRequisitionsDataState}
+                    listDataState={myPurchaseContractDataState}
                     recentRequisitionText="Purchase Contracts"
                     pending_svg_icon="/ellipse-84.svg"
                     completed_svg_icon="/ellipse-85.svg"
+                    goTo="/bidder-dashboard/bidder-purchase-contracts/details"
                      />
                 </div>
             {isNotificationOpen && (

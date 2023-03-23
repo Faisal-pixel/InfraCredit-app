@@ -8,6 +8,7 @@ import LoginOptions from "./pages/LoginOptions";
 import { useEffect } from "react";
 import "./App.css"
 import BidderDashboardHome from "./pages/Bidder/BidderDashboardHome";
+import BasicRequestorRoutes from "./pages/BasicRequestor/BasicRequestorRoutes";
 
 function App() {
   const action = useNavigationType();
@@ -153,6 +154,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LoginOptions />} />
       <Route path="/bidder-dashboard/*" element={<BidderDashboardHome />} />
+      <Route path="/basic-requestor/*" element={<BasicRequestorRoutes />} />
     </Routes>
   );
 }

@@ -7,10 +7,11 @@ import SearchInput from "./SearchInput";
 
 const RecentRequisitionContainer = ({
   recentRequisitionText,
-  myRecentRequisitionsDataState,
+  listDataState,
   pending_svg_icon,
   completed_svg_icon,
-  shouldIncludeStatusSection
+  shouldIncludeStatusSection,
+  goTo
   
 }) => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const RecentRequisitionContainer = ({
     const onSearchButtonClicked = (e) => {
       setSearchTerm(searchTerm);
     }
-    const filteredMyRecentRequisitionDataState = myRecentRequisitionsDataState.filter(data => {
+    const filteredlistDataState = listDataState.filter(data => {
       return (
         data.rfqNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
       data.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -30,8 +31,8 @@ const RecentRequisitionContainer = ({
     })
 
   const onListContainerClick = useCallback((myRecentRequisitionsData) => {
-    navigate("/bidder-dashboard/bid-details", {state: {listData: myRecentRequisitionsData}});
-  }, [navigate]);
+    navigate(goTo, {state: {listData: myRecentRequisitionsData}});
+  }, [navigate, goTo]);
   return (
     <div className={styles.table}>
       <div className={styles.recentRequisitionsWrapper}>
@@ -59,11 +60,11 @@ const RecentRequisitionContainer = ({
           </div>
           }
         </div>
-        {filteredMyRecentRequisitionDataState.map((myRecentRequisitionsData) => {
+        {filteredlistDataState.map((listData, index) => {
 
-          const {rfqNo, description, expDateAndTime,status} = myRecentRequisitionsData;
+          const {rfqNo, description, expDateAndTime, status} = listData;
           return(
-            <div className={styles.list} onClick={() => {onListContainerClick(myRecentRequisitionsData)}}>
+            <div key={index} className={styles.list} onClick={() => {onListContainerClick(listData)}}>
               <div className={styles.sd2568}>{rfqNo}</div>
               <div
                 className={styles.buildingMaintenance}

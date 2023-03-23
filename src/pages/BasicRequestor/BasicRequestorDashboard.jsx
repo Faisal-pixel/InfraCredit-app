@@ -14,17 +14,29 @@ import RecentRequisitionContainer from "../../components/RecentRequisitionContai
 
 const activityStatusData = [
     {
-        activityStatusTitle: "RFQ",
+        activityStatusTitle: "New",
         ActivityStatusValue: 5
     },
     {
-        activityStatusTitle: "RFP",
+        activityStatusTitle: "Awaiting Approval",
         ActivityStatusValue: 31
     },
     {
-        activityStatusTitle: "Contracts",
+        activityStatusTitle: "Approved",
+        ActivityStatusValue: 51
+    },
+    {
+        activityStatusTitle: "In Progress",
+        ActivityStatusValue: 10
+    },
+    {
+        activityStatusTitle: "Completed",
+        ActivityStatusValue: 135
+    },
+    {
+        activityStatusTitle: "Pending Rating",
         ActivityStatusValue: 2
-    }
+    },
 ]
 
 const myRecentRequisitionsData = [
@@ -73,7 +85,7 @@ const myRecentRequisitionsData = [
 ]
 
 
-const BidderDashboard = () => {
+const BasicRequestorDashboard = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const [activityStatusDataState, setActivityStatusDataState] = useState([]);
     const [myRecentRequisitionsDataState, setMyRecentRequisitionsDataState] = useState([])
@@ -98,7 +110,7 @@ const BidderDashboard = () => {
 
     return(
         <>
-            <BidderDashboardStyled>
+            <BasicRequestorDashboardStyled>
                 <MainHeader
                     dimensions="/group.svg"
                     dimensionsText="/vector2.svg"
@@ -113,7 +125,7 @@ const BidderDashboard = () => {
                 />
                 <div className="body page-container">
                     <UserGreetings />
-                    <DashboardNavigation dashboard dashboardActive requestForQuotes purchaseContracts issueResolution report profile/>
+                    <DashboardNavigation myRequisitions myRequisitionsActive teamRequisitions myPurchaseContracts/>
                     <ActivityStatus activityStatusData={activityStatusDataState} />
                     <RecentRequisitionContainer
                     listDataState={myRecentRequisitionsDataState}
@@ -121,10 +133,9 @@ const BidderDashboard = () => {
                     recentRequisitionText="My Recent Requisitions"
                     pending_svg_icon="/ellipse-84.svg"
                     completed_svg_icon="/ellipse-85.svg"
-                    goTo="/bidder-dashboard/bid-details"
                      />
                 </div>
-            </BidderDashboardStyled>
+            </BasicRequestorDashboardStyled>
 
             {isNotificationOpen && (
                 <PortalPopup
@@ -140,6 +151,6 @@ const BidderDashboard = () => {
     )
 }
 
-const BidderDashboardStyled = styled.div``;
+const BasicRequestorDashboardStyled = styled.div``;
 
-export default BidderDashboard;
+export default BasicRequestorDashboard;

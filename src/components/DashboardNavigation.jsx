@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./DashboardNavigation.module.css";
 
-const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActive, bidders, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, issueResolution, report, profile, purchaseDocuments, myRequisitions, teamRequisitions, myPurchaseContracts}) => {
+const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActive, bidders, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts}) => {
     const navigate = useNavigate();
     const onRequestForQuotesClick = useCallback(() => {
         navigate("/bidder-dashboard/bidder-request-for-quotes")
@@ -14,6 +14,12 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
     }, [navigate])
     const onPurchaseContractsClick = useCallback(() => {
         navigate("/bidder-dashboard/bidder-purchase-contracts")
+    }, [navigate])
+    const myRequisitionsClick = useCallback(() => {
+        navigate("/basic-requestor")
+    }, [navigate])
+    const teamRequisitionsClick = useCallback(() => {
+        navigate("/basic-requestor/team-requisitions")
     }, [navigate])
 
     return (
@@ -55,11 +61,11 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
                 <div className={styles.dashboard}>Purchase Documents</div>
                 <div className={styles.child} />
               </div>
-              <div className={myRequisitions ? styles.div5 : styles.div}>
+              <div onClick={myRequisitionsClick} className={`${myRequisitions ? styles.div5 : styles.div} ${myRequisitionsActive && styles.div7}`}>
                 <div className={styles.dashboard}>My Requisitions</div>
                 <div className={styles.child} />
               </div>
-              <div className={teamRequisitions ? styles.div5 : styles.div}>
+              <div onClick={teamRequisitionsClick} className={`${teamRequisitions ? styles.div5 : styles.div} ${teamRequisitionsActive && styles.div7}`}>
                 <div className={styles.dashboard}>Team Requisitions</div>
                 <div className={styles.child} />
               </div>
