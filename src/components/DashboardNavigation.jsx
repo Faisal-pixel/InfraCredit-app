@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./DashboardNavigation.module.css";
 
-const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActive, bidders, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts}) => {
+const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActive, bidders, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts, myPurchaseContractsActive}) => {
     const navigate = useNavigate();
     const onRequestForQuotesClick = useCallback(() => {
         navigate("/bidder-dashboard/bidder-request-for-quotes")
@@ -20,6 +20,9 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
     }, [navigate])
     const teamRequisitionsClick = useCallback(() => {
         navigate("/basic-requestor/team-requisitions")
+    }, [navigate])
+    const myPurchaseContractsClick = useCallback(() => {
+        navigate("/basic-requestor/purchase-contracts")
     }, [navigate])
 
     return (
@@ -69,7 +72,7 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
                 <div className={styles.dashboard}>Team Requisitions</div>
                 <div className={styles.child} />
               </div>
-              <div className={myPurchaseContracts ? styles.div5 : styles.div}>
+              <div onClick={myPurchaseContractsClick} className={`${myPurchaseContracts ? styles.div5 : styles.div} ${myPurchaseContractsActive && styles.div7}`}>
                 <div className={styles.dashboard}>My Purchase Contracts</div>
                 <div className={styles.child} />
               </div>

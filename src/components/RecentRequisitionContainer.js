@@ -11,7 +11,8 @@ const RecentRequisitionContainer = ({
   pending_svg_icon,
   completed_svg_icon,
   shouldIncludeStatusSection,
-  goTo
+  goTo,
+  purchaseContracts
   
 }) => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const RecentRequisitionContainer = ({
   const onListContainerClick = useCallback((myRecentRequisitionsData) => {
     navigate(goTo, {state: {listData: myRecentRequisitionsData}});
   }, [navigate, goTo]);
+
   return (
     <div className={styles.table}>
       <div className={styles.recentRequisitionsWrapper}>
@@ -46,13 +48,13 @@ const RecentRequisitionContainer = ({
       <div className={styles.headerParent}>
         <div className={styles.header}>
           <div className={styles.title1}>
-            <div className={styles.rfqNo}>RFQ No</div>
+            <div className={styles.rfqNo}>{purchaseContracts ? "Contract No" : "RFQ No."}</div>
           </div>
           <div className={styles.title2}>
             <div className={styles.description}>Description</div>
           </div>
           <div className={styles.title2}>
-            <div className={styles.description}>{`Expiration Date & Time`}</div>
+            <div className={styles.description}>{purchaseContracts ? "Contract Date & Time" : `Expiration Date & Time`}</div>
           </div>
           {
             shouldIncludeStatusSection && <div className={styles.title1}>

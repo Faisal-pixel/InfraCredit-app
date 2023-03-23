@@ -8,38 +8,10 @@ import UserGreetings from "../../components/UserGreetings";
 import DashboardNavigation from "../../components/DashboardNavigation";
 
 import styled from "styled-components";
-import ActivityStatus from "../../components/ActivityStatus";
-import RequisitionListContainer from "../../components/RequisitionListContainer";
+import RecentRequisitionContainer from "../../components/RecentRequisitionContainer";
 
 
-const activityStatusData = [
-    {
-        activityStatusTitle: "New",
-        ActivityStatusValue: 4
-    },
-    {
-        activityStatusTitle: "Awaiting Approval",
-        ActivityStatusValue: 12
-    },
-    {
-        activityStatusTitle: "Pending My Approval",
-        ActivityStatusValue: 5
-    },
-    {
-        activityStatusTitle: "Approved",
-        ActivityStatusValue: 75
-    },
-    {
-        activityStatusTitle: "In Progress",
-        ActivityStatusValue: 54
-    },
-    {
-        activityStatusTitle: "Completed",
-        ActivityStatusValue: 153
-    },
-]
-
-const myRecentRequisitionsData = [
+const myPurchaseContractsData = [
     {
         rfqNo: "SD2568",
         requesterName: "Jane Doe",
@@ -92,10 +64,9 @@ const myRecentRequisitionsData = [
 ]
 
 
-const BasicRequestorTeamRequisitions = () => {
+const BasicRequestorPurchaseContracts = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
-    const [activityStatusDataState, setActivityStatusDataState] = useState([]);
-    const [myRecentRequisitionsDataState, setMyRecentRequisitionsDataState] = useState([])
+    const [myPurchaseContractsDataState, setMyPurchaseContractsDataState] = useState([])
     const navigate = useNavigate();
 
     const openNotification = useCallback(() => {
@@ -111,13 +82,12 @@ const BasicRequestorTeamRequisitions = () => {
       }, [navigate]);
 
       useEffect(() => {
-        setActivityStatusDataState(activityStatusData);
-        setMyRecentRequisitionsDataState(myRecentRequisitionsData)
+        setMyPurchaseContractsDataState(myPurchaseContractsData)
       }, [])
 
     return(
         <>
-            <BasicRequestorTeamRequisitionsStyled>
+            <BasicRequestorPurchaseContractsStyled>
                 <MainHeader
                     dimensions="/group.svg"
                     dimensionsText="/vector2.svg"
@@ -132,14 +102,17 @@ const BasicRequestorTeamRequisitions = () => {
                 />
                 <div className="body page-container">
                     <UserGreetings />
-                    <DashboardNavigation myRequisitions teamRequisitions teamRequisitionsActive myPurchaseContracts/>
-                    <ActivityStatus activityStatusData={activityStatusDataState} />
-                    <RequisitionListContainer 
-                        listData={myRecentRequisitionsDataState}
+                    <DashboardNavigation myRequisitions teamRequisitions myPurchaseContracts myPurchaseContractsActive/>
+                    <RecentRequisitionContainer
+                        listDataState={myPurchaseContractsDataState}
+                        recentRequisitionText="My Purchase Contracts"
+                        pending_svg_icon="/ellipse-84.svg"
+                        completed_svg_icon="/ellipse-85.svg"
                         goTo="/basic-requestor/requisition-details"
-                    />
+                        purchaseContracts
+                     />
                 </div>
-            </BasicRequestorTeamRequisitionsStyled>
+            </BasicRequestorPurchaseContractsStyled>
 
             {isNotificationOpen && (
                 <PortalPopup
@@ -154,8 +127,8 @@ const BasicRequestorTeamRequisitions = () => {
     )
 }
 
-const BasicRequestorTeamRequisitionsStyled = styled.div``;
+const BasicRequestorPurchaseContractsStyled = styled.div``;
 
 
 
-export default BasicRequestorTeamRequisitions;
+export default BasicRequestorPurchaseContracts;

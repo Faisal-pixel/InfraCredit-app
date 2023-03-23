@@ -133,6 +133,7 @@ const BasicRequestorDashboard = () => {
                     recentRequisitionText="My Recent Requisitions"
                     pending_svg_icon="/ellipse-84.svg"
                     completed_svg_icon="/ellipse-85.svg"
+                    goTo="/basic-requestor/requisition-details"
                      />
                 </div>
             </BasicRequestorDashboardStyled>
