@@ -30,11 +30,10 @@ const BasicRequestorPurchaseContractsDetails = () => {
         navigate("/");
       }, [navigate]);
 
-
     return <>
 
-
-<MainHeader
+                
+                <MainHeader
                     dimensions="/group.svg"
                     dimensionsText="/vector2.svg"
                     dimensionsCode="/vector3.svg"

@@ -1,7 +1,14 @@
-import React from "react";
+import React, {useState, useCallback} from "react";
 import styled from "styled-components";
+import BidderRatingsPopupBox from "./BidderRatingsPopupBox";
 const OutlinedWhiteBgButton = ({uploadContractNote}) => {
+    const [isRatingOpen, setIsRatingOpen] = useState(false);
+
+    const onClickRateBidderButton = useCallback(() => {
+        setIsRatingOpen(true)
+      }, [])
     return <>
+        {isRatingOpen && <BidderRatingsPopupBox />}
         <ButtonParentStyled>
             <button className="button">
                 <div className="button-child">
@@ -11,7 +18,7 @@ const OutlinedWhiteBgButton = ({uploadContractNote}) => {
             {
                 uploadContractNote && <button className="button"><div className="button-child">Upload Contract Note</div></button>
             }
-            <button className="button">
+            <button onClick={onClickRateBidderButton} className="button">
                 <div className="button-child">Rate Bidder Performance</div>
             </button>
         </ButtonParentStyled>
