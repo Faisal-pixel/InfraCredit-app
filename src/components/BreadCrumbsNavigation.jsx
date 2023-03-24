@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 //STYLES
 import styles from "./BreadCrumbsNavigation.module.css";
 
-const BreadCrumbsNavigation = ({children}) => {
+const BreadCrumbsNavigation = ({children, dashboardGoTo}) => {
     const navigate = useNavigate();
     const onDashboardClick = useCallback(() => {
-        navigate("/bidder-dashboard");
-      }, [navigate]);
+        navigate(dashboardGoTo);
+      }, [navigate, dashboardGoTo]);
     return (
         <>
             <div className={styles.breadcrumb}>

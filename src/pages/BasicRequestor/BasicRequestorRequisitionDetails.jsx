@@ -47,9 +47,11 @@ const BasicRequestorRequisitionDetails = () => {
             />
         <BasicRequestorRequisitionDetailsStyled className="page-container body">
             
-            <BreadCrumbsNavigation>
+                <BreadCrumbsNavigation dashboardGoTo="/basic-requestor">
                     <BreadCrumbsFrameIcon />
-                    <BreadCrumbsNextName breadCrumbsNextName="Bid Details" isActive/>
+                    <BreadCrumbsNextName breadCrumbsNextName="My Requisition"/>
+                    <BreadCrumbsFrameIcon />
+                    <BreadCrumbsNextName breadCrumbsNextName="Requisition Details" isActive/>
                 </BreadCrumbsNavigation>
 
                 <BidDetailsButtons>
