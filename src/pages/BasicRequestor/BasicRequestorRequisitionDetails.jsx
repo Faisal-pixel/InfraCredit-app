@@ -13,6 +13,7 @@ import DetailsToggle from "../../components/DetailsToggle";
 
 import styled from "styled-components";
 import LegalTemplateDatasheet from "../../components/LegalTemplateDatasheet";
+import EsgTemplateDatasheet from "../../components/EsgTemplateDatasheet";
 
 
 const BasicRequestorRequisitionDetails = () => {
@@ -99,6 +100,11 @@ const BasicRequestorRequisitionDetails = () => {
                 <DetailsToggle title="Legal Template Datasheet">
                     <DetailsDropdownStyled>
                         <LegalTemplateDatasheet />
+                    </DetailsDropdownStyled>
+                </DetailsToggle>
+                <DetailsToggle title="ESG Template Datasheet">
+                    <DetailsDropdownStyled>
+                        <EsgTemplateDatasheet />
                     </DetailsDropdownStyled>
                 </DetailsToggle>
                 
