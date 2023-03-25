@@ -14,6 +14,8 @@ import DetailsToggle from "../../components/DetailsToggle";
 import styled from "styled-components";
 import LegalTemplateDatasheet from "../../components/LegalTemplateDatasheet";
 import EsgTemplateDatasheet from "../../components/EsgTemplateDatasheet";
+import TechnicalTemplateDatasheet from "../../components/TechnicalTemplateDatasheet";
+import GeneralOutlinedWhiteBgButton from "../../components/GeneralOutlinedWhiteBgButton";
 
 
 const BasicRequestorRequisitionDetails = () => {
@@ -54,10 +56,10 @@ const BasicRequestorRequisitionDetails = () => {
                     <BreadCrumbsNextName breadCrumbsNextName="Requisition Details" isActive/>
                 </BreadCrumbsNavigation>
 
-                <BidDetailsButtons>
-                    <DownloadButton buttonName="Download RFQ" />
-                    <GeneralButton type="submit" buttonName="Submit Response" />
-                </BidDetailsButtons>
+                <RequisitionDetailsButtons>
+                    <GeneralOutlinedWhiteBgButton buttonName="Save"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Delete"/>
+                </RequisitionDetailsButtons>
 
                 <DetailsToggle title="General">
                     <DetailsDropdownStyled>
@@ -109,6 +111,11 @@ const BasicRequestorRequisitionDetails = () => {
                         <EsgTemplateDatasheet />
                     </DetailsDropdownStyled>
                 </DetailsToggle>
+                <DetailsToggle title="Technical Template Datasheet">
+                    <DetailsDropdownStyled>
+                        <TechnicalTemplateDatasheet />
+                    </DetailsDropdownStyled>
+                </DetailsToggle>
                 
 
         </BasicRequestorRequisitionDetailsStyled>
@@ -138,11 +145,18 @@ const BasicRequestorRequisitionDetailsStyled = styled.div`
     gap: var(--gap-xl);
 `
 
-const BidDetailsButtons = styled.div`
+const RequisitionDetailsButtons = styled.div`
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 1rem;
+
+    .buttonDiv {
+        flex-basis: 13%;
+        button {
+            width: 100%;
+        }
+    }
 `
 const DetailsDropdownStyled = styled.div`
     .pointer {
