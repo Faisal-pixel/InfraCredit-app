@@ -16,7 +16,7 @@ import TechnicalTemplateDatasheet from "../../components/TechnicalTemplateDatash
 import GeneralOutlinedWhiteBgButton from "../../components/GeneralOutlinedWhiteBgButton";
 
 
-const BasicRequestorRequisitionDetails = () => {
+const BasicRequestorTeamRequisitionsDetails = () => {
     const location = useLocation();
     const {listData} = location.state;
     console.log(listData)
@@ -46,18 +46,18 @@ const BasicRequestorRequisitionDetails = () => {
                     openNotification={openNotification}
                     onContainerClick={onContainerClick}
             />
-        <BasicRequestorRequisitionDetailsStyled className="page-container body">
+        <BasicRequestorTeamRequisitionsDetailsStyled className="page-container body">
             
                 <BreadCrumbsNavigation dashboardGoTo="/basic-requestor">
                     <BreadCrumbsFrameIcon />
-                    <BreadCrumbsNextName breadCrumbsNextName="My Requisition"/>
+                    <BreadCrumbsNextName breadCrumbsNextName="Team Requisition"/>
                     <BreadCrumbsFrameIcon />
                     <BreadCrumbsNextName breadCrumbsNextName="Requisition Details" isActive/>
                 </BreadCrumbsNavigation>
 
                 <RequisitionDetailsButtons>
-                    <GeneralOutlinedWhiteBgButton buttonName="Save"/>
-                    <GeneralOutlinedWhiteBgButton buttonName="Delete"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Approve"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Reject"/>
                 </RequisitionDetailsButtons>
 
                 <DetailsToggle title="General">
@@ -117,7 +117,7 @@ const BasicRequestorRequisitionDetails = () => {
                 </DetailsToggle>
                 
 
-        </BasicRequestorRequisitionDetailsStyled>
+        </BasicRequestorTeamRequisitionsDetailsStyled>
 
         {isNotificationOpen && (
                 <PortalPopup
@@ -132,7 +132,7 @@ const BasicRequestorRequisitionDetails = () => {
     </>
 }
 
-const BasicRequestorRequisitionDetailsStyled = styled.div`
+const BasicRequestorTeamRequisitionsDetailsStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -245,4 +245,4 @@ const DetailsDropdownStyled = styled.div`
 
 `
 
-export default BasicRequestorRequisitionDetails;
+export default BasicRequestorTeamRequisitionsDetails;

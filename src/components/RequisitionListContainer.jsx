@@ -16,7 +16,7 @@ const RequisitionListContainer = ({listData, goTo}) => {
         data.rfqNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
         data.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         data.expDateAndTime.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        data.requesterName.toLowerCase().includes(searchTerm.toLowerCase())
+        data.requestorName.toLowerCase().includes(searchTerm.toLowerCase())
       )
     })
 
@@ -47,11 +47,11 @@ const RequisitionListContainer = ({listData, goTo}) => {
 
                 {
                     filteredlistData.map(eachListData => {
-                        const {rfqNo, requesterName, description, expDateAndTime, status} = eachListData;
+                        const {rfqNo, requestorName, description, expDateAndTime, status} = eachListData;
                         return (
                             <div onClick={() => onListContainerClick(eachListData)} className="grid list-body">
                                 <div className="list-data">{rfqNo}</div>
-                                <div className="list-data">{requesterName}</div>
+                                <div className="list-data">{requestorName}</div>
                                 <div className="list-data">{description}</div>
                                 <div className="list-data">{expDateAndTime}</div>
                                 <div className="list-data">

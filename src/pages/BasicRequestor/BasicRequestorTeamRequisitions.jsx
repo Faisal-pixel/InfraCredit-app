@@ -42,49 +42,49 @@ const activityStatusData = [
 const myRecentRequisitionsData = [
     {
         rfqNo: "SD2568",
-        requesterName: "Jane Doe",
+        requestorName: "Jane Doe",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
-        requesterName: "Bello Fawaz",
+        requestorName: "Bello Fawaz",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
-        requesterName: "Amaka John",
+        requestorName: "Amaka John",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
-        requesterName: "Stella Obi",
+        requestorName: "Stella Obi",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
-        requesterName: "John Snow",
+        requestorName: "John Snow",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
-        requesterName: "Wale Mark",
+        requestorName: "Wale Mark",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: true
     },
     {
         rfqNo: "SD2568",
-        requesterName: "Bill Gate",
+        requestorName: "Bill Gate",
         description: "IT infrastructure service",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: true
@@ -136,7 +136,7 @@ const BasicRequestorTeamRequisitions = () => {
                     <ActivityStatus activityStatusData={activityStatusDataState} />
                     <RequisitionListContainer 
                         listData={myRecentRequisitionsDataState}
-                        goTo="/basic-requestor/requisition-details"
+                        goTo="/basic-requestor/team-requisitions/details"
                     />
                 </div>
             </BasicRequestorTeamRequisitionsStyled>

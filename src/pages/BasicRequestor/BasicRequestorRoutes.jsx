@@ -6,6 +6,7 @@ import BasicRequestorPurchaseContracts from "./BasicRequestorPurchaseContracts";
 import BasicRequestorPurchaseContractsDetails from "./BasicRequestorPurchaseContractsDetails";
 import BasicRequestorRequisitionDetails from "./BasicRequestorRequisitionDetails";
 import BasicRequestorTeamRequisitions from "./BasicRequestorTeamRequisitions";
+import BasicRequestorTeamRequisitionsDetails from "./BasicRequestorTeamRequisitionsDetails";
 
 const BasicRequestorRoutes = () => {
     return (
@@ -13,6 +14,7 @@ const BasicRequestorRoutes = () => {
             <Routes>
                 <Route path="/" element={<BasicRequestorDashboard />} />
                 <Route path="/team-requisitions" element={<BasicRequestorTeamRequisitions />} />
+                <Route path="/team-requisitions/details" element={<BasicRequestorTeamRequisitionsDetails />} />
                 <Route path="/requisition-details" element={<BasicRequestorRequisitionDetails />} />
                 <Route path="/purchase-contracts" element={<BasicRequestorPurchaseContracts />} />
                 <Route path="/purchase-contracts/details" element={<BasicRequestorPurchaseContractsDetails />} />

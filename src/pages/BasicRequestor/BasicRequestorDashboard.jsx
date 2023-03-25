@@ -42,42 +42,49 @@ const activityStatusData = [
 const myRecentRequisitionsData = [
     {
         rfqNo: "SD2568",
+        requestorName: "John",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
+        requestorName: "Janet",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
+        requestorName: "Jackson",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
+        requestorName: "Snow",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD1564",
+        requestorName: "Robert",
         description: "IT infrastructure Service",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: true
     },
     {
         rfqNo: "SD1564",
+        requestorName: "Josephine",
         description: "IT infrastructure Service",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: true
     },
     {
         rfqNo: "SD1564",
+        requestorName: "Maleek",
         description: "IT infrastructure Service",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: true
