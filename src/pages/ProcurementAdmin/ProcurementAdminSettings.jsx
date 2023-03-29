@@ -9,6 +9,7 @@ import DashboardNavigation from "../../components/DashboardNavigation";
 
 import styled from "styled-components";
 import SubDashboardNav from "../../components/SubDashboardNav";
+import { useTable } from "react-table";
 
 
 
@@ -68,6 +69,7 @@ const recentRequisitionsData = [
 
 const ProcurementAdminSettings = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
+    const {} = useTable({})
     
     const [recentRequisitionsDataState, setrecentRequisitionsDataState] = useState([])
     const navigate = useNavigate();
@@ -108,6 +110,9 @@ const ProcurementAdminSettings = () => {
                         <UserGreetings />
                     <DashboardNavigation dashboard settings settingsActive bidders requestForQuotes purchaseContracts purchaseDocuments/>
                     <SubDashboardNav adminUser adminUserActive userRoles userPermissions shouldIncludeButton buttonName="Add new user"/>
+                    <AdminUsersTablesStyled>
+
+                    </AdminUsersTablesStyled>
                 </div>
             </ProcurementAdminSettingsStyled>
 
@@ -126,5 +131,7 @@ const ProcurementAdminSettings = () => {
 }
 
 const ProcurementAdminSettingsStyled = styled.div``;
+
+const AdminUsersTablesStyled = styled.div``;
 
 export default ProcurementAdminSettings;
