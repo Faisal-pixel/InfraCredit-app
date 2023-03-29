@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./DashboardNavigation.module.css";
 
-const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActive, bidders, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts, myPurchaseContractsActive}) => {
+const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActive, bidders, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, purchaseContractsGoTo, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts, myPurchaseContractsActive}) => {
     const navigate = useNavigate();
     const onRequestForQuotesClick = useCallback(() => {
         navigate("/bidder-dashboard/bidder-request-for-quotes")
@@ -13,8 +13,8 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
         navigate("/bidder-dashboard")
     }, [navigate])
     const onPurchaseContractsClick = useCallback(() => {
-        navigate("/bidder-dashboard/bidder-purchase-contracts")
-    }, [navigate])
+        navigate(purchaseContractsGoTo)
+    }, [navigate, purchaseContractsGoTo])
     const myRequisitionsClick = useCallback(() => {
         navigate("/basic-requestor")
     }, [navigate])
@@ -24,6 +24,9 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
     const myPurchaseContractsClick = useCallback(() => {
         navigate("/basic-requestor/purchase-contracts")
     }, [navigate])
+    const onSettingsClick = useCallback(() => {
+        navigate("/procurement-admin/settings/admin-user")
+    }, [navigate])
 
     return (
         <div className={styles.tabMenu}>
@@ -32,7 +35,7 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
                 <div className={styles.dashboard}>Dashboard</div>
                 <div className={styles.child} />
               </div>
-              <div className={`${settings ? styles.div5 : styles.div} ${settingsActive && styles.div7}`}>
+              <div onClick={onSettingsClick} className={`${settings ? styles.div5 : styles.div} ${settingsActive && styles.div7}`}>
                 <div className={styles.dashboard}>Settings</div>
                 <div className={styles.child} />
               </div>

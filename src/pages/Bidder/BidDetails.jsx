@@ -46,7 +46,7 @@ const BidDetails = () => {
                 />
             
             <BidDetailsStyled className="page-container">
-                <BreadCrumbsNavigation>
+                <BreadCrumbsNavigation dashboardGoTo="/bidder-dashboard">
                     <BreadCrumbsFrameIcon />
                     <BreadCrumbsNextName breadCrumbsNextName="Bid Details" isActive/>
                 </BreadCrumbsNavigation>

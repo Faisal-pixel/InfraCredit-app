@@ -103,7 +103,7 @@ const BidderPurchaseContracts = () => {
 
             <div className="body page-container">
                     <UserGreetings />
-                    <DashboardNavigation dashboard requestForQuotes purchaseContracts purchaseContractsActive issueResolution report profile/>
+                    <DashboardNavigation dashboard requestForQuotes purchaseContracts purchaseContractsActive purchaseContractsGoTo="/bidder-dashboard/bidder-purchase-contracts" issueResolution report profile/>
                     <RecentRequisitionContainer
                     listDataState={myPurchaseContractDataState}
                     recentRequisitionText="Purchase Contracts"

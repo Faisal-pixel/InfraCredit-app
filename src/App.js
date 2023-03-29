@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import "./App.css"
 import BidderDashboardHome from "./pages/Bidder/BidderDashboardHome";
 import BasicRequestorRoutes from "./pages/BasicRequestor/BasicRequestorRoutes";
+import ProcurementAdminRoutes from "./pages/ProcurementAdmin/ProcurementAdminRoutes";
 
 function App() {
   const action = useNavigationType();
@@ -155,6 +156,7 @@ function App() {
       <Route path="/" element={<LoginOptions />} />
       <Route path="/bidder-dashboard/*" element={<BidderDashboardHome />} />
       <Route path="/basic-requestor/*" element={<BasicRequestorRoutes />} />
+      <Route path="/procurement-admin/*" element={<ProcurementAdminRoutes />} />
     </Routes>
   );
 }

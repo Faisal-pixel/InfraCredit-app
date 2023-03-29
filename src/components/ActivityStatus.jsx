@@ -2,12 +2,12 @@ import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./ActivityStatus.module.css";
 
-const ActivityStatus = ({activityStatusData}) => {
+const ActivityStatus = ({activityStatusData, goTo}) => {
     const navigate = useNavigate();
 
     const handleClick = useCallback(() => {
-        navigate("/bidder-dashboard/bidder-request-for-quotes")
-    }, [navigate])
+        navigate(goTo)
+    }, [navigate, goTo])
     return (
         <div className={styles.stats}>
         <div className={styles.activityStatus}>Activity Status</div>

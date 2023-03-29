@@ -8,64 +8,57 @@ import UserGreetings from "../../components/UserGreetings";
 import DashboardNavigation from "../../components/DashboardNavigation";
 
 import styled from "styled-components";
-import ActivityStatus from "../../components/ActivityStatus";
-import RecentRequisitionContainer from "../../components/RecentRequisitionContainer";
+import SubDashboardNav from "../../components/SubDashboardNav";
 
 
-const activityStatusData = [
-    {
-        activityStatusTitle: "RFQ",
-        ActivityStatusValue: 5
-    },
-    {
-        activityStatusTitle: "RFP",
-        ActivityStatusValue: 31
-    },
-    {
-        activityStatusTitle: "Contracts",
-        ActivityStatusValue: 2
-    }
-]
 
-const myRecentRequisitionsData = [
+
+const recentRequisitionsData = [
     {
         rfqNo: "SD2568",
+        requestorName: "John",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
+        requestorName: "Janet",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
+        requestorName: "Jackson",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD2568",
+        requestorName: "Snow",
         description: "Building Maintenance",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: false
     },
     {
         rfqNo: "SD1564",
+        requestorName: "Robert",
         description: "IT infrastructure Service",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: true
     },
     {
         rfqNo: "SD1564",
+        requestorName: "Josephine",
         description: "IT infrastructure Service",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: true
     },
     {
         rfqNo: "SD1564",
+        requestorName: "Maleek",
         description: "IT infrastructure Service",
         expDateAndTime: "2022-01-28 14:53 GMT+1",
         status: true
@@ -73,10 +66,10 @@ const myRecentRequisitionsData = [
 ]
 
 
-const BidderDashboard = () => {
+const ProcurementAdminSettings = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
-    const [activityStatusDataState, setActivityStatusDataState] = useState([]);
-    const [myRecentRequisitionsDataState, setMyRecentRequisitionsDataState] = useState([])
+    
+    const [recentRequisitionsDataState, setrecentRequisitionsDataState] = useState([])
     const navigate = useNavigate();
 
     const openNotification = useCallback(() => {
@@ -92,13 +85,12 @@ const BidderDashboard = () => {
       }, [navigate]);
 
       useEffect(() => {
-        setActivityStatusDataState(activityStatusData);
-        setMyRecentRequisitionsDataState(myRecentRequisitionsData)
+        setrecentRequisitionsDataState(recentRequisitionsData)
       }, [])
 
     return(
         <>
-            <BidderDashboardStyled>
+            <ProcurementAdminSettingsStyled>
                 <MainHeader
                     dimensions="/group.svg"
                     dimensionsText="/vector2.svg"
@@ -111,20 +103,13 @@ const BidderDashboard = () => {
                     openNotification={openNotification}
                     onContainerClick={onContainerClick}
                 />
+                 
                 <div className="body page-container">
-                    <UserGreetings />
-                    <DashboardNavigation dashboard dashboardActive requestForQuotes purchaseContracts purchaseContractsGoTo="/bidder-dashboard/bidder-purchase-contracts" issueResolution report profile/>
-                    <ActivityStatus activityStatusData={activityStatusDataState} goTo="/bidder-dashboard/bidder-request-for-quotes" />
-                    <RecentRequisitionContainer
-                    listDataState={myRecentRequisitionsDataState}
-                    shouldIncludeStatusSection
-                    recentRequisitionText="My Recent Requisitions"
-                    pending_svg_icon="/ellipse-84.svg"
-                    completed_svg_icon="/ellipse-85.svg"
-                    goTo="/bidder-dashboard/bid-details"
-                     />
+                        <UserGreetings />
+                    <DashboardNavigation dashboard settings settingsActive bidders requestForQuotes purchaseContracts purchaseDocuments/>
+                    <SubDashboardNav adminUser adminUserActive userRoles userPermissions shouldIncludeButton buttonName="Add new user"/>
                 </div>
-            </BidderDashboardStyled>
+            </ProcurementAdminSettingsStyled>
 
             {isNotificationOpen && (
                 <PortalPopup
@@ -140,6 +125,6 @@ const BidderDashboard = () => {
     )
 }
 
-const BidderDashboardStyled = styled.div``;
+const ProcurementAdminSettingsStyled = styled.div``;
 
-export default BidderDashboard;
+export default ProcurementAdminSettings;

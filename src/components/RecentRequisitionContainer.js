@@ -12,7 +12,8 @@ const RecentRequisitionContainer = ({
   completed_svg_icon,
   shouldIncludeStatusSection,
   goTo,
-  purchaseContracts
+  purchaseContracts,
+  shouldIncludeSearchandFilter
   
 }) => {
   const navigate = useNavigate();
@@ -39,11 +40,11 @@ const RecentRequisitionContainer = ({
     <div className={styles.table}>
       <div className={styles.recentRequisitionsWrapper}>
         <div className={styles.recentRequisitions}>{recentRequisitionText}</div>
-          <SearchFilterDivStyled>
+          {shouldIncludeSearchandFilter && <SearchFilterDivStyled>
             <SearchInput placeholder="Search" searchTerm={searchTerm} handleChange={handleChange}/>
             <SearchButton onClick={onSearchButtonClicked}/>
             <img className={styles.frameIcon} alt="" src="/frame3.svg" />
-          </SearchFilterDivStyled>
+          </SearchFilterDivStyled>}
       </div>
       <div className={styles.headerParent}>
         <div className={styles.header}>

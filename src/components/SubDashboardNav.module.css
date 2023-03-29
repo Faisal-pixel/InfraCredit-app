@@ -1,0 +1,65 @@
+.dashboard {
+    position: relative;
+    line-height: 19.2px;
+  }
+  .div,
+  .div5 {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .div {
+    display: none;
+  }
+  .div5 {
+    display: flex;
+    cursor: pointer;
+  }
+  .child {
+    align-self: stretch;
+    position: relative;
+    border-top: 1.5px solid var(--primary);
+    box-sizing: border-box;
+    height: 1.5px;
+    flex-shrink: 0;
+  }
+  .div7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-5xl);
+    color: var(--primary);
+  }
+  .otherRequisitions {
+    position: relative;
+    line-height: 19.2px;
+    display: none;
+  }
+  .topMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-21xl);
+  }
+  .tabMenuChild {
+    position: relative;
+    border-top: 0.5px solid var(--grey-dark);
+    box-sizing: border-box;
+    width: 90vw;
+    height: 0.5px;
+    flex-shrink: 0;
+  }
+  .tabMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: var(--grey-dark);
+  }
+
+  .buttonContainer {
+    position: absolute;
+    right: 6.5%;
+    }
