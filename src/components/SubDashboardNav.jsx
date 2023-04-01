@@ -13,12 +13,12 @@ const SubDashboardNav = ({adminUser, adminUserActive, userRoles, userRolesActive
     const onAdminUsers = useCallback(() => {
         navigate("/procurement-admin/settings/admin-user")
     }, [navigate])
-    // const onPurchaseContractsClick = useCallback(() => {
-    //     navigate(purchaseContractsGoTo)
-    // }, [navigate, purchaseContractsGoTo])
-    // const myRequisitionsClick = useCallback(() => {
-    //     navigate("/basic-requestor")
-    // }, [navigate])
+    const onUserRolesClick = useCallback(() => {
+        navigate("/procurement-admin/settings/user-roles")
+    }, [navigate])
+    const onUserPermissionsClick = useCallback(() => {
+        navigate("/procurement-admin/settings/user-permissions")
+    }, [navigate])
     // const teamRequisitionsClick = useCallback(() => {
     //     navigate("/basic-requestor/team-requisitions")
     // }, [navigate])
@@ -36,11 +36,11 @@ const SubDashboardNav = ({adminUser, adminUserActive, userRoles, userRolesActive
                 <div className={styles.dashboard}>Admin Users</div>
                 <div className={styles.child} />
               </div>
-              <div onClick={onAdminUsers} className={`${userRoles ? styles.div5 : styles.div} ${userRolesActive && styles.div7}`}>
+              <div onClick={onUserRolesClick} className={`${userRoles ? styles.div5 : styles.div} ${userRolesActive && styles.div7}`}>
                 <div className={styles.dashboard}>User Roles</div>
                 <div className={styles.child} />
               </div>
-              <div onClick={onAdminUsers} className={`${userPermissions ? styles.div5 : styles.div} ${userPermissionsActive && styles.div7}`}>
+              <div onClick={onUserPermissionsClick} className={`${userPermissions ? styles.div5 : styles.div} ${userPermissionsActive && styles.div7}`}>
                 <div className={styles.dashboard}>User Permissions</div>
                 <div className={styles.child} />
               </div>

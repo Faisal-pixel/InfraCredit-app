@@ -5,12 +5,12 @@ import MainHeader from "../../components/MainHeader";
 import PortalPopup from "../../components/PortalPopup";
 import NotificationPopup from "../../components/NotificationPopup";
 import UserGreetings from "../../components/UserGreetings";
-import DashboardNavigation from "../../components/DashboardNavigation";
 
 import styled from "styled-components";
 import ActivityStatus from "../../components/ActivityStatus";
 import RecentRequisitionContainer from "../../components/RecentRequisitionContainer";
 import RecordsToggleButton from "../../components/RecordsToggleButton";
+import ProcurementAdminDashboardNavigationComponent from "./ProcurementAdminDashboardNavigationComponent";
 
 
 const activityStatusData = [
@@ -137,7 +137,7 @@ const ProcurementAdminDashboard = () => {
                         <UserGreetings />
                         <RecordsToggleButton />
                     </div>
-                    <DashboardNavigation dashboard dashboardActive settings bidders requestForQuotes purchaseContracts purchaseDocuments/>
+                    <ProcurementAdminDashboardNavigationComponent dashboardActive/>
                     <ActivityStatus activityStatusData={activityStatusDataState} />
                     <RecentRequisitionContainer
                     listDataState={recentRequisitionsDataState}

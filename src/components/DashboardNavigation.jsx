@@ -4,14 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./DashboardNavigation.module.css";
 
-const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActive, bidders, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, purchaseContractsGoTo, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts, myPurchaseContractsActive}) => {
+const DashboardNavigation = ({dashboard, dashboardActive, dashboardGoTo, settings, settingsActive, settingsGoTo, bidders, biddersActive, biddersGoTo, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, purchaseContractsGoTo, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts, myPurchaseContractsActive}) => {
     const navigate = useNavigate();
+    console.log(dashboardGoTo)
     const onRequestForQuotesClick = useCallback(() => {
         navigate("/bidder-dashboard/bidder-request-for-quotes")
     }, [navigate])
     const onDashboardClick = useCallback(() => {
-        navigate("/bidder-dashboard")
-    }, [navigate])
+      navigate(dashboardGoTo)
+    }, [navigate, dashboardGoTo])
     const onPurchaseContractsClick = useCallback(() => {
         navigate(purchaseContractsGoTo)
     }, [navigate, purchaseContractsGoTo])
@@ -25,8 +26,11 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
         navigate("/basic-requestor/purchase-contracts")
     }, [navigate])
     const onSettingsClick = useCallback(() => {
-        navigate("/procurement-admin/settings/admin-user")
-    }, [navigate])
+        navigate(settingsGoTo)
+    }, [navigate, settingsGoTo])
+    const onBiddersClick = useCallback(() => {
+        navigate(biddersGoTo)
+    }, [navigate, biddersGoTo])
 
     return (
         <div className={styles.tabMenu}>
@@ -39,7 +43,7 @@ const DashboardNavigation = ({dashboard, dashboardActive, settings, settingsActi
                 <div className={styles.dashboard}>Settings</div>
                 <div className={styles.child} />
               </div>
-              <div className={bidders ? styles.div5 : styles.div}>
+              <div onClick={onBiddersClick} className={`${bidders ? styles.div5 : styles.div} ${biddersActive && styles.div7}`}>
                 <div className={styles.dashboard}>Bidders</div>
                 <div className={styles.child} />
               </div>

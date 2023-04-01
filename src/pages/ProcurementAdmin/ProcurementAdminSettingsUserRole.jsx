@@ -17,16 +17,16 @@ import ReactTable from "../../components/ReactTable";
 
 
 
-const ProcurementAdminSettings = () => {
+const ProcurementAdminSettingsUserRole = () => {
     const columns = useMemo(() => [
             
             {
-                Header: "Admin Users",
-                accessor: "adminUsers"
+                Header: "Role ID",
+                accessor: "roleID"
             },
             {
-                Header: "User role",
-                accessor: "userRole"
+                Header: "Role Description",
+                accessor: "roleDescription"
             },
             {
                 Header: "User Type",
@@ -36,38 +36,38 @@ const ProcurementAdminSettings = () => {
 
     const data = useMemo(() => [
         {
-            adminUsers: "John Snow",
-            userRole: "Basic",
+            roleID: "Basic",
+            roleDescription: "Basic User",
             userType: "Vendor"
         },
         {
-            adminUsers: "Bill Gate",
-            userRole: "Approver",
+            roleID: "Approver",
+            roleDescription: "An Approver of all records",
             userType: "Vendor"
         },
         {
-            adminUsers: "Jane Doe",
-            userRole: "Uploader",
+            roleID: "Uploader",
+            roleDescription: "Uploader of documents",
+            userType: "Employee"
+        },
+        {
+            roleID: "Sys Admin",
+            roleDescription: "System Administrator",
             userType: "Vendor"
         },
         {
-            adminUsers: "Mark Henry",
-            userRole: "Sys Admin",
-            userType: "Vendor"
+            roleID: "Manager",
+            roleDescription: "To approve",
+            userType: "Employee"
         },
         {
-            adminUsers: "Alabi Tope",
-            userRole: "Manager",
-            userType: "Vendor"
+            roleID: "Lead",
+            roleDescription: "Super user",
+            userType: "Employee"
         },
         {
-            adminUsers: "Bello Fawaz",
-            userRole: "Lead",
-            userType: "Vendor"
-        },
-        {
-            adminUsers: "Joke Ayo",
-            userRole: "Supervisor",
+            roleID: "Supervisor",
+            roleDescription: "To review",
             userType: "Vendor"
         },
     ], [])
@@ -92,7 +92,7 @@ const ProcurementAdminSettings = () => {
 
     return(
         <>
-            <ProcurementAdminSettingsStyled>
+            <ProcurementAdminSettingsUserRoleStyled>
                 <MainHeader
                     dimensions="/group.svg"
                     dimensionsText="/vector2.svg"
@@ -109,12 +109,15 @@ const ProcurementAdminSettings = () => {
                 <div className="body page-container">
                         <UserGreetings />
                         <ProcurementAdminDashboardNavigationComponent settingsActive/>
-                        <SubDashboardNav adminUser adminUserActive userRoles userPermissions shouldIncludeButton buttonName="Add new user"/>
-                    <AdminUsersStyled>
-                    <ReactTable columns={columns} data={data} />
-                    </AdminUsersStyled>
+                        <SubDashboardNav adminUser userRoles userRolesActive userPermissions />
+                    <UserRoleStyled>
+                        <div className="add-icon">
+                            <img alt="" src="/frame-2133.svg" />
+                        </div>
+                        <ReactTable columns={columns} data={data} />
+                    </UserRoleStyled>
                 </div>
-            </ProcurementAdminSettingsStyled>
+            </ProcurementAdminSettingsUserRoleStyled>
 
             {isNotificationOpen && (
                 <PortalPopup
@@ -132,9 +135,9 @@ const ProcurementAdminSettings = () => {
     
 }
 
-const ProcurementAdminSettingsStyled = styled.div``;
+const ProcurementAdminSettingsUserRoleStyled = styled.div``;
 
-const AdminUsersStyled = styled.div`
+const UserRoleStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -148,6 +151,18 @@ const AdminUsersStyled = styled.div`
     gap: var(--gap-xl);
     text-align: left;
     font-family: var(--h21);
+
+    .add-icon {
+        border-radius: var(--br-11xl);
+        background: linear-gradient(90deg, #227cbf, #47b65c);
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        align-self: flex-end;
+        cursor: pointer;
+    }
     
     table {
         width: 100%;
@@ -174,4 +189,4 @@ const AdminUsersStyled = styled.div`
     }
 `;
 
-export default ProcurementAdminSettings;
+export default ProcurementAdminSettingsUserRole;
