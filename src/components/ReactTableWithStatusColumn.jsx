@@ -3,6 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { useTable, useSortBy } from "react-table";
+import styled from "styled-components";
 
 const ReactTableWithStatusColumn = ({columns, data, showFilter}) => {
     const tableInstance = useTable({columns, data}, useSortBy)
@@ -49,7 +50,10 @@ const ReactTableWithStatusColumn = ({columns, data, showFilter}) => {
                                     const status = cell.value;
                                     return (
                                         <td {...cell.getCellProps()}>
-                                        {status ? "Completed" : "Pending"}
+                                        <StatusDivStyled status={status}>
+                                                <img className="child" alt="" src={status ? "/ellipse-85.svg" : "/ellipse-84.svg"} />
+                                                <div className={status ? "completed" : "pending"}>{status ? "Completed" : "Pending"}</div>
+                                        </StatusDivStyled>
                                         </td>
                                     );
                                 } else {
@@ -63,6 +67,33 @@ const ReactTableWithStatusColumn = ({columns, data, showFilter}) => {
         </table>
     </>
 }
+
+const StatusDivStyled = styled.div`
+    width: min-content;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: var(--br-21xl);
+    background-color: ${props => props.status ? `var(--green-1001)` : `var(--yellow-1001)`};
+    padding: var(--padding-8xs) var(--padding-4xs);
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+    font-size: var(--caption-size);
+    color: var(--green-9001);
+
+    .child {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        flex-shrink: 0;
+    }
+
+    .completed, .pending {
+        line-height: 14.4px;
+        display: inline-block;
+    }
+`
 
 
 
