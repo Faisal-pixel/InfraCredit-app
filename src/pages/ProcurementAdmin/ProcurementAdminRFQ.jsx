@@ -10,9 +10,53 @@ import styled from "styled-components";
 import SubDashboardNav from "../../components/SubDashboardNav";
 import ProcurementAdminDashboardNavigationComponent from "./ProcurementAdminDashboardNavigationComponent";
 import ReactTable from "../../components/ReactTable";
+import RequisitionListContainer from "../../components/RequisitionListContainer";
 
 
-
+const myRecentRequisitionsData = [
+    {
+        rfqNo: "SD2568",
+        description: "Building Maintenance",
+        expDateAndTime: "2022-01-28 14:53 GMT+1",
+        status: false
+    },
+    {
+        rfqNo: "SD2568",
+        description: "Building Maintenance",
+        expDateAndTime: "2022-01-28 14:53 GMT+1",
+        status: false
+    },
+    {
+        rfqNo: "SD2568",
+        description: "Building Maintenance",
+        expDateAndTime: "2022-01-28 14:53 GMT+1",
+        status: false
+    },
+    {
+        rfqNo: "SD2568",
+        description: "Building Maintenance",
+        expDateAndTime: "2022-01-28 14:53 GMT+1",
+        status: false
+    },
+    {
+        rfqNo: "SD1564",
+        description: "IT infrastructure Service",
+        expDateAndTime: "2022-01-28 14:53 GMT+1",
+        status: true
+    },
+    {
+        rfqNo: "SD1564",
+        description: "IT infrastructure Service",
+        expDateAndTime: "2022-01-28 14:53 GMT+1",
+        status: true
+    },
+    {
+        rfqNo: "SD1564",
+        description: "IT infrastructure Service",
+        expDateAndTime: "2022-01-28 14:53 GMT+1",
+        status: true
+    },
+]
 
 
 
@@ -36,39 +80,10 @@ const ProcurementAdminRFQ = () => {
 
     const data = useMemo(() => [
         {
-            adminUsers: "John Snow",
-            userRole: "Basic",
-            userType: "Vendor"
-        },
-        {
-            adminUsers: "Bill Gate",
-            userRole: "Approver",
-            userType: "Vendor"
-        },
-        {
-            adminUsers: "Jane Doe",
-            userRole: "Uploader",
-            userType: "Vendor"
-        },
-        {
-            adminUsers: "Mark Henry",
-            userRole: "Sys Admin",
-            userType: "Vendor"
-        },
-        {
-            adminUsers: "Alabi Tope",
-            userRole: "Manager",
-            userType: "Vendor"
-        },
-        {
-            adminUsers: "Bello Fawaz",
-            userRole: "Lead",
-            userType: "Vendor"
-        },
-        {
-            adminUsers: "Joke Ayo",
-            userRole: "Supervisor",
-            userType: "Vendor"
+            rfqNo: "John Snow",
+            description: "Basic",
+            expDateAndTime: "Vendor",
+            requestorName: "Vendor"
         },
     ], [])
     
@@ -107,11 +122,11 @@ const ProcurementAdminRFQ = () => {
                 />
                  
                 <div className="body page-container">
-                        <UserGreetings />
-                        <ProcurementAdminDashboardNavigationComponent requestForQuotesActive/>
-                        <SubDashboardNav myRequisitions myRequisitionsActive teamRequisitions otherRequistions shouldIncludeButton buttonName="Create New RFQ"/>
+                    <UserGreetings />
+                    <ProcurementAdminDashboardNavigationComponent requestForQuotesActive/>
+                    <SubDashboardNav myRequisitions myRequisitionsActive teamRequisitions otherRequistions shouldIncludeButton buttonName="Create New RFQ"/>
                     <AdminUsersStyled>
-                    <ReactTable columns={columns} data={data} />
+                        <RequisitionListContainer listData={myRecentRequisitionsData}/>
                     </AdminUsersStyled>
                 </div>
             </ProcurementAdminRFQStyled>

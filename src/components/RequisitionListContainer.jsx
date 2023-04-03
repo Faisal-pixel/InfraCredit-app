@@ -1,11 +1,32 @@
-import React, {useState, useCallback} from "react";
+import React, {useState, useCallback, useMemo} from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import SearchButton from "./SearchButton";
 import SearchInput from "./SearchInput";
+import ReactTable from "./ReactTable";
+import ReactTableWithStatusColumn from "./ReactTableWithStatusColumn";
 
 
 const RequisitionListContainer = ({listData, goTo}) => {
+    const columns = useMemo(() => [
+            
+        {
+            Header: "Admin Users",
+            accessor: "rfqNo"
+        },
+        {
+            Header: "User role",
+            accessor: "description"
+        },
+        {
+            Header: "User Type",
+            accessor: "expDateAndTime"
+        },
+        {
+            Header: "Status",
+            accessor: "status"
+        },
+], [])
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
     const handleChange = (e) => {
@@ -15,8 +36,7 @@ const RequisitionListContainer = ({listData, goTo}) => {
       return (
         data.rfqNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
         data.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        data.expDateAndTime.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        data.requestorName.toLowerCase().includes(searchTerm.toLowerCase())
+        data.expDateAndTime.toLowerCase().includes(searchTerm.toLowerCase())
       )
     })
 
@@ -37,33 +57,7 @@ const RequisitionListContainer = ({listData, goTo}) => {
                 </div>
             </header>
             <main className="list-table">
-                <div className="grid list-header">
-                    <div className="list-column-title">RFQ No</div>
-                    <div className="list-column-title">Requester Name</div>
-                    <div className="list-column-title">Description</div>
-                    <div className="list-column-title">Expiration Date & Time</div>
-                    <div className="list-column-title">Status</div>
-                </div>
-
-                {
-                    filteredlistData.map(eachListData => {
-                        const {rfqNo, requestorName, description, expDateAndTime, status} = eachListData;
-                        return (
-                            <div onClick={() => onListContainerClick(eachListData)} className="grid list-body">
-                                <div className="list-data">{rfqNo}</div>
-                                <div className="list-data">{requestorName}</div>
-                                <div className="list-data">{description}</div>
-                                <div className="list-data">{expDateAndTime}</div>
-                                <div className="list-data">
-                                    <StatusDivStyled status={status}>
-                                        <img className="child" alt="" src={status ? "/ellipse-85.svg" : "/ellipse-84.svg"} />
-                                        <div className="completed">{status ? "completed" : "Pending"}</div>
-                                    </StatusDivStyled>
-                                </div>
-                            </div>  
-                        )
-                    })
-                }          
+                <ReactTableWithStatusColumn columns={columns} data={filteredlistData}/>
             </main>
         </RequisitionsListContainerStyled>
     </>
