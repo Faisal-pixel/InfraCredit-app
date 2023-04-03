@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const SelectDropdown = ({permissionsData}) => {
+const SelectDropdown = ({permissionsData, setUpdateSelect}) => {
+    
     return <>
         <DropdownStyled>
             {
                 permissionsData.map(data => (
-                    <div className="pleaseSelectWrapper">
+                    <div onClick={() => setUpdateSelect(data.permission)} key={data.accessorID}  className="pleaseSelectWrapper">
                         <div className="pleaseSelect">{data.permission}</div>
                     </div>
                 ))

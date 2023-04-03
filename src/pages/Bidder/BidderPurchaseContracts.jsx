@@ -110,6 +110,7 @@ const BidderPurchaseContracts = () => {
                     pending_svg_icon="/ellipse-84.svg"
                     completed_svg_icon="/ellipse-85.svg"
                     goTo="/bidder-dashboard/bidder-purchase-contracts/details"
+                    shouldIncludeSearchandFilter
                      />
                 </div>
             {isNotificationOpen && (

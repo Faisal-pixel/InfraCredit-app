@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { useTable, useSortBy } from "react-table";
 
-const ReactTable = ({columns, data}) => {
+const ReactTable = ({columns, data, showFilter}) => {
     const tableInstance = useTable({columns, data}, useSortBy)
     const {
         getTableProps,
@@ -31,7 +31,7 @@ const ReactTable = ({columns, data}) => {
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')} {renderSortIcon(column)}</th>
+                            <th {...column.getHeaderProps(showFilter && column.getSortByToggleProps())}>{column.render('Header')} {showFilter && renderSortIcon(column)}</th>
                         ))}
                     </tr>
                 ))}

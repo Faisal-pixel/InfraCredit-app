@@ -43,7 +43,7 @@ const RecentRequisitionContainer = ({
           {shouldIncludeSearchandFilter && <SearchFilterDivStyled>
             <SearchInput placeholder="Search" searchTerm={searchTerm} handleChange={handleChange}/>
             <SearchButton onClick={onSearchButtonClicked}/>
-            <img className={styles.frameIcon} alt="" src="/frame3.svg" />
+            <img alt="" src="/frame3.svg" />
           </SearchFilterDivStyled>}
       </div>
       <div className={styles.headerParent}>

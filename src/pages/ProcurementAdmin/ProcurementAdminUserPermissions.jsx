@@ -40,7 +40,7 @@ const permissionSetData = [
         permission: "Lead"
     },
     {
-        accessorID: 4,
+        accessorID: 7,
         permission: "Supervisor"
     },
 ]
@@ -106,7 +106,7 @@ const ProcurementAdminUserPermissions = () => {
 
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const [isDropdownDropped, setDropdownDropped] = useState(false)
-    const [updateSelect, setUpdateSelect] = useState("");
+    const [updateSelect, setUpdateSelect] = useState(permissionSetData[0].permission);
     
     const navigate = useNavigate();
 
@@ -127,9 +127,6 @@ const ProcurementAdminUserPermissions = () => {
         setDropdownDropped(!isDropdownDropped);
     }, [isDropdownDropped]);
 
-    const closeDropdown = useCallback(() => {
-        setDropdownDropped(false);
-    }, []);
 
     return(
         <>
@@ -155,10 +152,10 @@ const ProcurementAdminUserPermissions = () => {
                             <div className="input">
                                 <div className="permissionSet">Permission set:</div>
                                 <div className="inputField" onClick={openDropdown}>
-                                    <div className="pleaseSelect">Basic</div>
+                                    <div className="pleaseSelect">{updateSelect}</div>
                                     <img className="frameIcon" alt="" src="/frame11.svg" />
                                     {
-                                        isDropdownDropped && <SelectDropdown permissionsData={permissionSetData}/>
+                                        isDropdownDropped && <SelectDropdown setUpdateSelect={setUpdateSelect} permissionsData={permissionSetData}/>
                                     }
                                 </div>
                             </div>

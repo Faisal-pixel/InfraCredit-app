@@ -6,7 +6,6 @@ import styles from "./DashboardNavigation.module.css";
 
 const DashboardNavigation = ({dashboard, dashboardActive, dashboardGoTo, settings, settingsActive, settingsGoTo, bidders, biddersActive, biddersGoTo, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, purchaseContractsGoTo, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts, myPurchaseContractsActive}) => {
     const navigate = useNavigate();
-    console.log(dashboardGoTo)
     const onRequestForQuotesClick = useCallback(() => {
         navigate("/bidder-dashboard/bidder-request-for-quotes")
     }, [navigate])

@@ -91,7 +91,7 @@ const BidderRequestForQuotes = () => {
 
             <div className="body page-container">
                     <UserGreetings />
-                    <DashboardNavigation dashboard requestForQuotes requestForQuotesActive purchaseContracts purchaseContractsGoTo="/bidder-dashboard/bidder-purchase-contracts" issueResolution report profile/>
+                    <DashboardNavigation dashboard dashboardGoTo="/bidder-dashboard" requestForQuotes requestForQuotesActive purchaseContracts purchaseContractsGoTo="/bidder-dashboard/bidder-purchase-contracts" issueResolution report profile/>
                     <RecentRequisitionContainer
                     listDataState={myRecentRequisitionsDataState}
                     recentRequisitionText="My Recent Bids"
