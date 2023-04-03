@@ -42,7 +42,7 @@ const BidderPurchaseContractsDetails = () => {
 
             <div className="body page-container">
                 <UserGreetings />
-                <DashboardNavigation dashboard requestForQuotes purchaseContracts purchaseContractsActive issueResolution report profile/>
+                <DashboardNavigation dashboard dashboardGoTo="/bidder-dashboard" requestForQuotes requestForQuotesGoTo="/bidder-dashboard/bidder-request-for-quotes" purchaseContracts purchaseContractsActive issueResolution report profile/>
                 <OutlinedWhiteBgButton />
                 <SaveCommentSection 
                     imageDimensions="/image-2@2x.png"

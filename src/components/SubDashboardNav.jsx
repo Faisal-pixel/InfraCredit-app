@@ -5,7 +5,7 @@ import GeneralButton from "./GeneralButton";
 
 import styles from "./SubDashboardNav.module.css";
 
-const SubDashboardNav = ({adminUser, adminUserActive, userRoles, userRolesActive, userPermissions, userPermissionsActive, buttonName, shouldIncludeButton}) => {
+const SubDashboardNav = ({adminUser, adminUserActive, userRoles, userRolesActive, userPermissions, userPermissionsActive, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, otherRequistions, otherRequistionsActive, buttonName, shouldIncludeButton}) => {
     const navigate = useNavigate();
     // const onRequestForQuotesClick = useCallback(() => {
     //     navigate("/bidder-dashboard/bidder-request-for-quotes")
@@ -19,15 +19,16 @@ const SubDashboardNav = ({adminUser, adminUserActive, userRoles, userRolesActive
     const onUserPermissionsClick = useCallback(() => {
         navigate("/procurement-admin/settings/user-permissions")
     }, [navigate])
-    // const teamRequisitionsClick = useCallback(() => {
-    //     navigate("/basic-requestor/team-requisitions")
-    // }, [navigate])
-    // const myPurchaseContractsClick = useCallback(() => {
-    //     navigate("/basic-requestor/purchase-contracts")
-    // }, [navigate])
-    // const onSettingsClick = useCallback(() => {
-    //     navigate("/procurement-admin/settings/admin-user")
-    // }, [navigate])
+    const onMyRequisitionsClick = useCallback(() => {
+        navigate("/procurement-admin/request-for-quotes/my-requisitions")
+    }, [navigate])
+    const onTeamRequisitionsClick = useCallback(() => {
+        navigate("/procurement-admin/request-for-quotes/team-requisitions")
+    }, [navigate])
+    
+    const onOtherRequisitionsClick = useCallback(() => {
+        navigate("/procurement-admin/request-for-quotes/other-requisitions")
+    }, [navigate])
 
     return (
         <div className={styles.tabMenu}>
@@ -42,6 +43,19 @@ const SubDashboardNav = ({adminUser, adminUserActive, userRoles, userRolesActive
               </div>
               <div onClick={onUserPermissionsClick} className={`${userPermissions ? styles.div5 : styles.div} ${userPermissionsActive && styles.div7}`}>
                 <div className={styles.dashboard}>User Permissions</div>
+                <div className={styles.child} />
+              </div>
+              {/* PROCUREMENT ADMIN REQUEST FOR QUOTES SUB NAV */}
+              <div onClick={onMyRequisitionsClick} className={`${myRequisitions ? styles.div5 : styles.div} ${myRequisitionsActive && styles.div7}`}>
+                <div className={styles.dashboard}>My Requisitions</div>
+                <div className={styles.child} />
+              </div>
+              <div onClick={onTeamRequisitionsClick} className={`${teamRequisitions ? styles.div5 : styles.div} ${teamRequisitionsActive && styles.div7}`}>
+                <div className={styles.dashboard}>Team Requisitions</div>
+                <div className={styles.child} />
+              </div>
+              <div onClick={onOtherRequisitionsClick} className={`${otherRequistions ? styles.div5 : styles.div} ${otherRequistionsActive && styles.div7}`}>
+                <div className={styles.dashboard}>Other Requisitions</div>
                 <div className={styles.child} />
               </div>
               <div className={styles.buttonContainer}>

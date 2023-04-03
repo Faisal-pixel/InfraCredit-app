@@ -17,7 +17,7 @@ import ReactTable from "../../components/ReactTable";
 
 
 
-const ProcurementAdminPurchaseContracts = () => {
+const ProcurementAdminRFQ = () => {
     const columns = useMemo(() => [
             
             {
@@ -92,7 +92,7 @@ const ProcurementAdminPurchaseContracts = () => {
 
     return(
         <>
-            <ProcurementAdminPurchaseContractsStyled>
+            <ProcurementAdminRFQStyled>
                 <MainHeader
                     dimensions="/group.svg"
                     dimensionsText="/vector2.svg"
@@ -108,13 +108,13 @@ const ProcurementAdminPurchaseContracts = () => {
                  
                 <div className="body page-container">
                         <UserGreetings />
-                        <ProcurementAdminDashboardNavigationComponent purchaseContractsActive/>
-                        <SubDashboardNav adminUser adminUserActive userRoles userPermissions shouldIncludeButton buttonName="Add new user"/>
+                        <ProcurementAdminDashboardNavigationComponent requestForQuotesActive/>
+                        <SubDashboardNav myRequisitions myRequisitionsActive teamRequisitions otherRequistions shouldIncludeButton buttonName="Create New RFQ"/>
                     <AdminUsersStyled>
                     <ReactTable columns={columns} data={data} />
                     </AdminUsersStyled>
                 </div>
-            </ProcurementAdminPurchaseContractsStyled>
+            </ProcurementAdminRFQStyled>
 
             {isNotificationOpen && (
                 <PortalPopup
@@ -132,7 +132,7 @@ const ProcurementAdminPurchaseContracts = () => {
     
 }
 
-const ProcurementAdminPurchaseContractsStyled = styled.div``;
+const ProcurementAdminRFQStyled = styled.div``;
 
 const AdminUsersStyled = styled.div`
     display: flex;
@@ -174,4 +174,4 @@ const AdminUsersStyled = styled.div`
     }
 `;
 
-export default ProcurementAdminPurchaseContracts;
+export default ProcurementAdminRFQ;

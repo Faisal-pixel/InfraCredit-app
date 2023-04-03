@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./DashboardNavigation.module.css";
 
-const DashboardNavigation = ({dashboard, dashboardActive, dashboardGoTo, settings, settingsActive, settingsGoTo, bidders, biddersActive, biddersGoTo, requestForQuotes, requestForQuotesActive, purchaseContracts, purchaseContractsActive, purchaseContractsGoTo, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts, myPurchaseContractsActive}) => {
+const DashboardNavigation = ({dashboard, dashboardActive, dashboardGoTo, settings, settingsActive, settingsGoTo, bidders, biddersActive, biddersGoTo, requestForQuotes, requestForQuotesActive, requestForQuotesGoTo, purchaseContracts, purchaseContractsActive, purchaseContractsGoTo, issueResolution, report, profile, purchaseDocuments, myRequisitions, myRequisitionsActive, teamRequisitions, teamRequisitionsActive, myPurchaseContracts, myPurchaseContractsActive}) => {
     const navigate = useNavigate();
     const onRequestForQuotesClick = useCallback(() => {
-        navigate("/bidder-dashboard/bidder-request-for-quotes")
-    }, [navigate])
+        navigate(requestForQuotesGoTo)
+    }, [navigate, requestForQuotesGoTo])
     const onDashboardClick = useCallback(() => {
       navigate(dashboardGoTo)
     }, [navigate, dashboardGoTo])

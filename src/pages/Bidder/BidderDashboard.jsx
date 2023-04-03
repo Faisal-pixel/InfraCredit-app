@@ -113,7 +113,7 @@ const BidderDashboard = () => {
                 />
                 <div className="body page-container">
                     <UserGreetings />
-                    <DashboardNavigation dashboard dashboardActive dashboardGoTo="/bidder-dashboard" requestForQuotes purchaseContracts purchaseContractsGoTo="/bidder-dashboard/bidder-purchase-contracts" issueResolution report profile/>
+                    <DashboardNavigation dashboard dashboardActive dashboardGoTo="/bidder-dashboard" requestForQuotes requestForQuotesGoTo="/bidder-dashboard/bidder-request-for-quotes" purchaseContracts purchaseContractsGoTo="/bidder-dashboard/bidder-purchase-contracts" issueResolution report profile/>
                     <ActivityStatus activityStatusData={activityStatusDataState} goTo="/bidder-dashboard/bidder-request-for-quotes" />
                     <RecentRequisitionContainer
                     listDataState={myRecentRequisitionsDataState}

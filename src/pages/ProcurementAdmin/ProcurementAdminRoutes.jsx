@@ -4,7 +4,7 @@ import ProcurementAdminBidders from "./ProcurementAdminBidders";
 import ProcurementAdminDashboard from "./ProcurementAdminDashboard";
 import ProcurementAdminRequisitionDetails from "./ProcurementAdminRecentRequisitionsDetails";
 import ProcurementAdminSettingsRoutes from "./ProcurementAdminSettingsRoutes";
-import ProcurementAdminPurchaseContracts from "./ProcurementAdminPurchaseContracts";
+import ProcurementAdminRFQRoutes from "./ProcurementAdminRFQRoutes";
 
 const ProcurementAdminRoutes = () => {
     return (
@@ -14,7 +14,7 @@ const ProcurementAdminRoutes = () => {
                 <Route  path="/requisition-details" element={<ProcurementAdminRequisitionDetails />} />
                 <Route  path="/settings/*" element={<ProcurementAdminSettingsRoutes />} />
                 <Route  path="/bidders" element={<ProcurementAdminBidders />} />
-                <Route  path="/purchase-contracts" element={<ProcurementAdminPurchaseContracts />} />
+                <Route  path="/request-for-quotes/*" element={<ProcurementAdminRFQRoutes />} />
             </Routes>
         </>
     )
