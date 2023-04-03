@@ -15,7 +15,6 @@ const ProcurementAdminRoutes = () => {
                 <Route  path="/settings/*" element={<ProcurementAdminSettingsRoutes />} />
                 <Route  path="/bidders" element={<ProcurementAdminBidders />} />
                 <Route  path="/purchase-contracts" element={<ProcurementAdminPurchaseContracts />} />
-            
             </Routes>
         </>
     )
