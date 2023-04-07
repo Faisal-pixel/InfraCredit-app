@@ -135,6 +135,7 @@ const BasicRequestorTeamRequisitions = () => {
                     <DashboardNavigation myRequisitions teamRequisitions teamRequisitionsActive myPurchaseContracts/>
                     <ActivityStatus activityStatusData={activityStatusDataState} />
                     <RequisitionListContainer 
+                        requisitionContainerName="Recent Requisitions"
                         listData={myRecentRequisitionsDataState}
                         goTo="/basic-requestor/team-requisitions/details"
                     />

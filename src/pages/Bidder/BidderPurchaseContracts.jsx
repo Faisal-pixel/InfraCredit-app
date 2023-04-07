@@ -1,71 +1,71 @@
-import React, {useState, useCallback, useEffect} from "react";
+import React, {useState, useCallback, useMemo} from "react";
 import { useNavigate } from "react-router-dom";
 import MainHeader from "../../components/MainHeader";
 import UserGreetings from "../../components/UserGreetings";
 import PortalPopup from "../../components/PortalPopup";
 import NotificationPopup from "../../components/NotificationPopup";
 import DashboardNavigation from "../../components/DashboardNavigation";
-import RecentRequisitionContainer from "../../components/RecentRequisitionContainer";
+import PurchaseContractsContainer from "../../components/PurchaseContractsContainer";
 
 
-const purchaseContractsData = [
-    {
-        rfqNo: "PO2568",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",  
-    },
-    {
-        rfqNo: "PO2568",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-    },
-    {
-        rfqNo: "PO2568",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-    },
-    {
-        rfqNo: "PO2568",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-    },
-    {
-        rfqNo: "PO1564",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-    },
-    {
-        rfqNo: "PO1564",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-    },
-    {
-        rfqNo: "PO1564",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-    },
-    {
-        rfqNo: "PO1564",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-    },
-    {
-        rfqNo: "PO1564",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-    },
-    {
-        rfqNo: "PO2568",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-    },
-]
+
 
 
 
 const BidderPurchaseContracts = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
-    const [myPurchaseContractDataState, setMyPurchaseContractDataState] = useState([])
+    const purchaseContractsData = useMemo(() => [
+        {
+            contractNo: "PO2568",
+            description: "Building Maintenance",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",  
+        },
+        {
+            contractNo: "PO2568",
+            description: "Building Maintenance",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",
+        },
+        {
+            contractNo: "PO2568",
+            description: "Building Maintenance",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",
+        },
+        {
+            contractNo: "PO2568",
+            description: "Building Maintenance",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",
+        },
+        {
+            contractNo: "PO1564",
+            description: "IT infrastructure Service",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",
+        },
+        {
+            contractNo: "PO1564",
+            description: "IT infrastructure Service",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",
+        },
+        {
+            contractNo: "PO1564",
+            description: "IT infrastructure Service",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",
+        },
+        {
+            contractNo: "PO1564",
+            description: "IT infrastructure Service",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",
+        },
+        {
+            contractNo: "PO1564",
+            description: "IT infrastructure Service",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",
+        },
+        {
+            contractNo: "PO2568",
+            description: "Building Maintenance",
+            contractDateAndTime: "2022-01-28 14:53 GMT+1",
+        },
+    ], [])
     const navigate = useNavigate();
 
     const openNotification = useCallback(() => {
@@ -79,10 +79,6 @@ const BidderPurchaseContracts = () => {
       const onContainerClick = useCallback(() => {
         navigate("/");
       }, [navigate]);
-
-      useEffect(() => {
-        setMyPurchaseContractDataState(purchaseContractsData)
-      }, [])
       
       
 
@@ -104,14 +100,7 @@ const BidderPurchaseContracts = () => {
             <div className="body page-container">
                     <UserGreetings />
                     <DashboardNavigation dashboard dashboardGoTo="/bidder-dashboard" requestForQuotes requestForQuotesGoTo="/bidder-dashboard/bidder-request-for-quotes" purchaseContracts purchaseContractsActive purchaseContractsGoTo="/bidder-dashboard/bidder-purchase-contracts" issueResolution report profile/>
-                    <RecentRequisitionContainer
-                    listDataState={myPurchaseContractDataState}
-                    recentRequisitionText="Purchase Contracts"
-                    pending_svg_icon="/ellipse-84.svg"
-                    completed_svg_icon="/ellipse-85.svg"
-                    goTo="/bidder-dashboard/bidder-purchase-contracts/details"
-                    shouldIncludeSearchandFilter
-                     />
+                     <PurchaseContractsContainer listData={purchaseContractsData} goTo="/bidder-dashboard/bidder-purchase-contracts/details"/>
                 </div>
             {isNotificationOpen && (
                 <PortalPopup

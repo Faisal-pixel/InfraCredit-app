@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useCallback} from "react";
+import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { useTable, useSortBy } from "react-table";
 import styled from "styled-components";
 
-const ReactTableWithStatusColumn = ({columns, data, showFilter}) => {
+const ReactTableWithStatusColumn = ({columns, data, showFilter, goTo}) => {
     const tableInstance = useTable({columns, data}, useSortBy)
     const {
         getTableProps,
@@ -26,6 +27,10 @@ const ReactTableWithStatusColumn = ({columns, data, showFilter}) => {
       
         return <FontAwesomeIcon icon={faSort} />;
       };
+      const navigate = useNavigate();
+      const onListContainerClick = useCallback((row) => {
+        navigate(goTo, {state: {row}});
+      }, [navigate, goTo]);
     return <>
         <table {...getTableProps()}>
             <thead>
@@ -43,7 +48,7 @@ const ReactTableWithStatusColumn = ({columns, data, showFilter}) => {
                     return (
                         <tr {...row.getRowProps({
                                 className: `my-custom-row`
-                            })}>
+                            })} onClick={() => onListContainerClick(row.original)}>
                             {row.cells.map((cell, index) => {
                                 if (index === row.cells.length - 1) {
                                     // If it's the last cell, check the value of the "completed" column

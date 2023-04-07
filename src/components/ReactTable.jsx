@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useCallback} from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { useTable, useSortBy } from "react-table";
+import { useNavigate } from "react-router-dom";
 
-const ReactTable = ({columns, data, showFilter}) => {
+const ReactTable = ({columns, data, showFilter, goTo}) => {
     const tableInstance = useTable({columns, data}, useSortBy)
     const {
         getTableProps,
@@ -25,6 +26,12 @@ const ReactTable = ({columns, data, showFilter}) => {
       
         return <FontAwesomeIcon icon={faSort} />;
       };
+
+      const navigate = useNavigate()
+
+      const onListContainerClick = useCallback((row) => {
+        navigate(goTo, {state: {row}});
+      }, [navigate, goTo]);
     return <>
         <table {...getTableProps()}>
             <thead>
@@ -42,7 +49,7 @@ const ReactTable = ({columns, data, showFilter}) => {
                     return (
                         <tr {...row.getRowProps({
                                 className: `my-custom-row`
-                            })}>
+                            })} onClick={() => onListContainerClick(row.original)}>
                             {row.cells.map(cell => {
                                 return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                             })}

@@ -2,28 +2,24 @@ import React, {useState, useMemo} from "react";
 import styled from "styled-components";
 import SearchButton from "./SearchButton";
 import SearchInput from "./SearchInput";
-import ReactTableWithStatusColumn from "./ReactTableWithStatusColumn";
+import ReactTable from "./ReactTable"
 
 
-const RequisitionListContainer = ({listData, goTo, requisitionContainerName}) => {
+const PurchaseContractsContainer = ({listData, goTo}) => {
     const columns = useMemo(() => [
             
         {
-            Header: "Admin Users",
-            accessor: "rfqNo"
+            Header: "Contract No",
+            accessor: "contractNo"
         },
         {
-            Header: "User role",
+            Header: "Description",
             accessor: "description"
         },
         {
-            Header: "User Type",
-            accessor: "expDateAndTime"
-        },
-        {
-            Header: "Status",
-            accessor: "status"
-        },
+            Header: "Contract Date & Time",
+            accessor: "contractDateAndTime"
+        }
 ], []);
     const [searchTerm, setSearchTerm] = useState("");
     const handleChange = (e) => {
@@ -31,17 +27,19 @@ const RequisitionListContainer = ({listData, goTo, requisitionContainerName}) =>
     }
     const filteredlistData = listData.filter(data => {
       return (
-        data.rfqNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        data.contractNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
         data.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        data.expDateAndTime.toLowerCase().includes(searchTerm.toLowerCase())
+        data.contractDateAndTime.toLowerCase().includes(searchTerm.toLowerCase())
       )
     })
+
+    
 
     return <>
         <RequisitionsListContainerStyled>
             <header>
                 <div className="title-name">
-                    {requisitionContainerName}
+                    Purchase Contracts
                 </div>
                 <div className="search-components">
                 <SearchInput placeholder="Search" searchTerm={searchTerm} handleChange={handleChange}/>
@@ -50,7 +48,7 @@ const RequisitionListContainer = ({listData, goTo, requisitionContainerName}) =>
                 </div>
             </header>
             <main className="list-table">
-                <ReactTableWithStatusColumn goTo={goTo} columns={columns} data={filteredlistData}/>
+                <ReactTable goTo={goTo} columns={columns} data={filteredlistData}/>
             </main>
         </RequisitionsListContainerStyled>
     </>
@@ -133,4 +131,5 @@ const RequisitionsListContainerStyled = styled.div`
 `
 
 
-export default RequisitionListContainer;
+
+export default PurchaseContractsContainer;
