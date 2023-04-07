@@ -17,7 +17,7 @@ import RequisitionListContainer from "../../components/RequisitionListContainer"
 
 
 
-const ProcurementAdminRFQ = () => {
+const ProcurementAdminRFQTeamRequisitions = () => {
 
     const myRecentRequisitionsData = useMemo(() => [
         {
@@ -86,7 +86,7 @@ const ProcurementAdminRFQ = () => {
 
     return(
         <>
-            <ProcurementAdminRFQStyled>
+            <ProcurementAdminRFQTeamRequisitionsStyled>
                 <MainHeader
                     dimensions="/group.svg"
                     dimensionsText="/vector2.svg"
@@ -103,12 +103,12 @@ const ProcurementAdminRFQ = () => {
                 <div className="body page-container">
                     <UserGreetings />
                     <ProcurementAdminDashboardNavigationComponent requestForQuotesActive/>
-                    <SubDashboardNav myRequisitions myRequisitionsActive teamRequisitions otherRequistions shouldIncludeButton buttonName="Create New RFQ"/>
+                    <SubDashboardNav myRequisitions teamRequisitions teamRequisitionsActive otherRequistions/>
                     <AdminUsersStyled>
-                        <RequisitionListContainer requisitionContainerName="My Requisitions" listData={myRecentRequisitionsData}/>
+                        <RequisitionListContainer requisitionContainerName="Team Requisitions" listData={myRecentRequisitionsData}/>
                     </AdminUsersStyled>
                 </div>
-            </ProcurementAdminRFQStyled>
+            </ProcurementAdminRFQTeamRequisitionsStyled>
 
             {isNotificationOpen && (
                 <PortalPopup
@@ -126,7 +126,7 @@ const ProcurementAdminRFQ = () => {
     
 }
 
-const ProcurementAdminRFQStyled = styled.div``;
+const ProcurementAdminRFQTeamRequisitionsStyled = styled.div``;
 
 const AdminUsersStyled = styled.div`
     display: flex;
@@ -168,4 +168,4 @@ const AdminUsersStyled = styled.div`
     }
 `;
 
-export default ProcurementAdminRFQ;
+export default ProcurementAdminRFQTeamRequisitions;

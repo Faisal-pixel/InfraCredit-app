@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import SearchButton from "./SearchButton";
 import SearchInput from "./SearchInput";
-import ReactTable from "./ReactTable";
 import ReactTableWithStatusColumn from "./ReactTableWithStatusColumn";
 
 
-const RequisitionListContainer = ({listData, goTo}) => {
+const RequisitionListContainer = ({listData, goTo, requisitionContainerName}) => {
     const columns = useMemo(() => [
             
         {
@@ -48,7 +47,7 @@ const RequisitionListContainer = ({listData, goTo}) => {
         <RequisitionsListContainerStyled>
             <header>
                 <div className="title-name">
-                    Recent Requisitions
+                    {requisitionContainerName}
                 </div>
                 <div className="search-components">
                 <SearchInput placeholder="Search" searchTerm={searchTerm} handleChange={handleChange}/>

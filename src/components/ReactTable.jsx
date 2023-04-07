@@ -31,7 +31,7 @@ const ReactTable = ({columns, data, showFilter}) => {
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps(showFilter && column.getSortByToggleProps())}>{column.render('Header')} {showFilter && renderSortIcon(column)}</th>
+                            <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')} {renderSortIcon(column)}</th>
                         ))}
                     </tr>
                 ))}
