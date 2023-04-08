@@ -19,7 +19,6 @@ import GeneralOutlinedWhiteBgButton from "../../components/GeneralOutlinedWhiteB
 const ProcurementAdminRequisitionDetails = () => {
     const location = useLocation();
     const {listData} = location.state;
-    console.log(listData)
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const navigate = useNavigate();
     const openNotification = useCallback(() => {

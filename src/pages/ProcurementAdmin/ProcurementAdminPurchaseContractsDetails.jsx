@@ -1,4 +1,5 @@
 import React, {useState, useCallback} from "react";
+
 import { useNavigate } from "react-router-dom";
 
 //Components
@@ -8,9 +9,12 @@ import NotificationPopup from "../../components/NotificationPopup";
 import UserGreetings from "../../components/UserGreetings";
 import DashboardNavigation from "../../components/DashboardNavigation";
 import SaveCommentSection from "../../components/SaveCommentSection";
+
+//Styles
+import styled from "styled-components";
 import GeneralOutlinedWhiteBgButton from "../../components/GeneralOutlinedWhiteBgButton";
 
-const BidderPurchaseContractsDetails = () => {
+const ProcurementAdminPurchaseContractsDetails = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -25,9 +29,11 @@ const BidderPurchaseContractsDetails = () => {
       const onContainerClick = useCallback(() => {
         navigate("/");
       }, [navigate]);
-    return (
-        <>
-            <MainHeader
+
+    return <>
+
+                
+                <MainHeader
                     dimensions="/group.svg"
                     dimensionsText="/vector2.svg"
                     dimensionsCode="/vector3.svg"
@@ -40,12 +46,13 @@ const BidderPurchaseContractsDetails = () => {
                     onContainerClick={onContainerClick}
                 />
 
-            <div className="body page-container">
+            <ProcurementAdminPurchaseContractsDetailsStyled className="body page-container">
                 <UserGreetings />
-                <DashboardNavigation dashboard dashboardGoTo="/bidder-dashboard" requestForQuotes requestForQuotesGoTo="/bidder-dashboard/bidder-request-for-quotes" purchaseContracts purchaseContractsActive issueResolution report profile/>
+                <DashboardNavigation myRequisitions teamRequisitions myPurchaseContracts myPurchaseContractsActive/>
                 <div style={{display: "flex", columnGap: "1rem"}}>
-                    <GeneralOutlinedWhiteBgButton buttonName="Digital Contract Signature"/>
-                    <GeneralOutlinedWhiteBgButton buttonName="Download Contract"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Notify Winner for Signature"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Upload Contract Note"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Rate Bidder Performance"/>
                 </div>
                 <SaveCommentSection 
                     imageDimensions="/image-2@2x.png"
@@ -57,7 +64,7 @@ const BidderPurchaseContractsDetails = () => {
                     imageSizeIds16x16x17746262="/delete.svg"
                     imageSizeIds16x16x17746263="/delete.svg"
                 />
-            </div>
+            </ProcurementAdminPurchaseContractsDetailsStyled>
             {isNotificationOpen && (
                 <PortalPopup
                 
@@ -68,8 +75,10 @@ const BidderPurchaseContractsDetails = () => {
                 <NotificationPopup onClose={closeNotification} />
                 </PortalPopup>
             )}
-        </>
-    )
+    </>
 }
 
-export default BidderPurchaseContractsDetails;
+const ProcurementAdminPurchaseContractsDetailsStyled = styled.div`
+`
+
+export default ProcurementAdminPurchaseContractsDetails;

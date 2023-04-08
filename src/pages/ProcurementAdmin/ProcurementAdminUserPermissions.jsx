@@ -290,6 +290,11 @@ const InputParentStyled = styled.div`
         flex-shrink: 0;
         padding: var(--padding-3xs);
         justify-content: center;
+        :hover {
+            cursor: pointer;
+            background-color: var(--secondary1);
+            color: var(--white1);
+        }
     }
     .button,
     .buttonParent,
