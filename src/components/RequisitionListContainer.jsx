@@ -10,19 +10,19 @@ const RequisitionListContainer = ({listData, goTo, requisitionContainerName, sho
             
         {
             Header: "Admin Users",
-            accessor: "rfqNo"
+            accessor: "rfqNo",
         },
         {
-            Header: "User role",
-            accessor: "description"
+            Header: "Description",
+            accessor: "description",
         },
         {
-            Header: "User Type",
-            accessor: "expDateAndTime"
+            Header: "Expiration Date & Time",
+            accessor: "expDateAndTime",
         },
         {
             Header: "Status",
-            accessor: "status"
+            accessor: "status",
         },
 ], []);
     const [searchTerm, setSearchTerm] = useState("");

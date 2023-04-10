@@ -47,43 +47,50 @@ const ITAdminDashboard = () => {
     const myRecentRequisitionsData = useMemo(() => [
         {
             rfqNo: "SD2568",
+            requestorName: "Jane Doe",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
             rfqNo: "SD2568",
+            requestorName: "Bello Fawaz",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
             rfqNo: "SD2568",
+            requestorName: "Amaka John",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
             rfqNo: "SD2568",
+            requestorName: "Stella Obi",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
-            rfqNo: "SD1564",
-            description: "IT infrastructure Service",
+            rfqNo: "SD2568",
+            requestorName: "John Snow",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requestorName: "Wale Mark",
+            description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: true
         },
         {
-            rfqNo: "SD1564",
-            description: "IT infrastructure Service",
-            expDateAndTime: "2022-01-28 14:53 GMT+1",
-            status: true
-        },
-        {
-            rfqNo: "SD1564",
-            description: "IT infrastructure Service",
+            rfqNo: "SD2568",
+            requestorName: "Bill Gate",
+            description: "IT infrastructure service",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: true
         },
@@ -131,7 +138,7 @@ const ITAdminDashboard = () => {
                     </div>
                     <ITAdminDashboardNavigationComponent dashboardActive/>
                     <ActivityStatus activityStatusData={activityStatusDataState} />
-                    <RequisitionListContainer requisitionContainerName="My Requisitions" listData={myRecentRequisitionsData}/>
+                    <RequisitionListContainer requisitionContainerName="My Requisitions" goTo="/it-admin/dashboard/requisitions/details" listData={myRecentRequisitionsData}/>
                 </div>
             </ITAdminDashboardStyled>
 

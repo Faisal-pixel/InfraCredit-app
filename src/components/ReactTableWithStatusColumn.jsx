@@ -37,7 +37,7 @@ const ReactTableWithStatusColumn = ({columns, data, showFilter, goTo}) => {
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')} {renderSortIcon(column)}</th>
+                            <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render("Header")} {renderSortIcon(column)}</th>
                         ))}
                     </tr>
                 ))}
