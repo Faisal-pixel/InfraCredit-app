@@ -5,7 +5,7 @@ import SearchInput from "./SearchInput";
 import ReactTableWithStatusColumn from "./ReactTableWithStatusColumn";
 
 
-const RequisitionListContainer = ({listData, goTo, requisitionContainerName}) => {
+const RequisitionListContainer = ({listData, goTo, requisitionContainerName, shouldIncludeSearchFilter}) => {
     const columns = useMemo(() => [
             
         {
@@ -43,11 +43,11 @@ const RequisitionListContainer = ({listData, goTo, requisitionContainerName}) =>
                 <div className="title-name">
                     {requisitionContainerName}
                 </div>
-                <div className="search-components">
+                {shouldIncludeSearchFilter && <div className="search-components">
                 <SearchInput placeholder="Search" searchTerm={searchTerm} handleChange={handleChange}/>
                 <SearchButton />
                 <img className="frame-icon" alt="" src="/frame3.svg" />
-                </div>
+                </div>}
             </header>
             <main className="list-table">
                 <ReactTableWithStatusColumn goTo={goTo} columns={columns} data={filteredlistData}/>
@@ -107,6 +107,7 @@ const RequisitionsListContainerStyled = styled.div`
     main {
         width: 100%;
         table {
+        padding: 0 1rem;
         width: 100%;
         border-spacing: 0;
         table-layout: fixed;
@@ -128,7 +129,6 @@ const RequisitionsListContainerStyled = styled.div`
             padding: 1rem;
             width: auto;
         }
-    }
     }
 `
 

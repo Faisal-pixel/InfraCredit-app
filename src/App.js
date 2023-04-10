@@ -10,6 +10,7 @@ import "./App.css"
 import BidderDashboardHome from "./pages/Bidder/BidderDashboardHome";
 import BasicRequestorRoutes from "./pages/BasicRequestor/BasicRequestorRoutes";
 import ProcurementAdminRoutes from "./pages/ProcurementAdmin/ProcurementAdminRoutes";
+import ITAdminRoutes from "./pages/ITAdmin/ITAdminRoutes";
 
 function App() {
   const action = useNavigationType();
@@ -157,6 +158,7 @@ function App() {
       <Route path="/bidder-dashboard/*" element={<BidderDashboardHome />} />
       <Route path="/basic-requestor/*" element={<BasicRequestorRoutes />} />
       <Route path="/procurement-admin/*" element={<ProcurementAdminRoutes />} />
+      <Route path="/it-admin/*" element={<ITAdminRoutes />} />
     </Routes>
   );
 }
