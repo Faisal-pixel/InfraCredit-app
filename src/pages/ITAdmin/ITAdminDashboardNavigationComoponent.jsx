@@ -10,7 +10,7 @@ const ITAdminDashboardNavigationComponent = ({
     purchaseDocumentsActive = false,
   }) => {
     return <>
-        <DashboardNavigation dashboard dashboardActive={dashboardActive} dashboardGoTo="/it-admin" settings settingsGoTo="/it-admin/settings/admin-user" settingsActive={settingsActive} bidders biddersActive={biddersActive} biddersGoTo="/it-admin/bidders" requestForQuotes requestForQuotesActive={requestForQuotesActive} requestForQuotesGoTo="/it-admin/request-for-quotes/my-requisitions" purchaseContracts purchaseContractsGoTo="/it-admin/purchase-contracts" purchaseContractsActive={purchaseContractsActive} purchaseDocuments/>
+        <DashboardNavigation dashboard dashboardActive={dashboardActive} dashboardGoTo="/it-admin" settings settingsGoTo="/it-admin/settings/admin-users" settingsActive={settingsActive} bidders biddersActive={biddersActive} biddersGoTo="/it-admin/bidders" requestForQuotes requestForQuotesActive={requestForQuotesActive} requestForQuotesGoTo="/it-admin/request-for-quotes/my-requisitions" purchaseContracts purchaseContractsGoTo="/it-admin/purchase-contracts" purchaseContractsActive={purchaseContractsActive} purchaseDocuments/>
     </>
 }
 

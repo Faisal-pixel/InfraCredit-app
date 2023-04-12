@@ -27,7 +27,7 @@ const ITAdminSubDashboardNav = ({adminUser, adminUserActive, userRoles, userRole
     }, [navigate])
     
     const onOtherRequisitionsClick = useCallback(() => {
-        navigate("/procurement-admin/request-for-quotes/other-requisitions")
+        navigate("/it-admin/request-for-quotes/other-requisitions")
     }, [navigate])
 
     return (

@@ -36,7 +36,7 @@ const PurchaseContractsContainer = ({listData, goTo}) => {
     
 
     return <>
-        <RequisitionsListContainerStyled>
+        <PurchaseContractsContainerStyled>
             <header>
                 <div className="title-name">
                     Purchase Contracts
@@ -50,11 +50,11 @@ const PurchaseContractsContainer = ({listData, goTo}) => {
             <main className="list-table">
                 <ReactTable goTo={goTo} columns={columns} data={filteredlistData}/>
             </main>
-        </RequisitionsListContainerStyled>
+        </PurchaseContractsContainerStyled>
     </>
 }
 
-const RequisitionsListContainerStyled = styled.div`
+const PurchaseContractsContainerStyled = styled.div`
     align-self: stretch;
     border-radius: var(--br-3xs);
     background-color: var(--white1);
@@ -126,7 +126,6 @@ const RequisitionsListContainerStyled = styled.div`
             padding: 1rem;
             width: auto;
         }
-    }
     }
 `
 
