@@ -12,6 +12,7 @@ import BasicRequestorRoutes from "./pages/BasicRequestor/BasicRequestorRoutes";
 import ProcurementAdminRoutes from "./pages/ProcurementAdmin/ProcurementAdminRoutes";
 import ITAdminRoutes from "./pages/ITAdmin/ITAdminRoutes";
 import FinanceAdminRoutes from "./pages/FinanceAdmin/FinanceAdminRoutes";
+import ManagementRoutes from "./pages/Management/ManagementRoutes";
 
 function App() {
   const action = useNavigationType();
@@ -161,6 +162,7 @@ function App() {
       <Route path="/procurement-admin/*" element={<ProcurementAdminRoutes />} />
       <Route path="/it-admin/*" element={<ITAdminRoutes />} />
       <Route path="/finance-admin/*" element={<FinanceAdminRoutes />} />
+      <Route path="/management/*" element={<ManagementRoutes />} />
     </Routes>
   );
 }
