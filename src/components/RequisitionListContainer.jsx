@@ -9,7 +9,7 @@ const RequisitionListContainer = ({listData, goTo, requisitionContainerName, sho
     const columns = useMemo(() => [
             
         {
-            Header: "Admin Users",
+            Header: "RFQ No",
             accessor: "rfqNo",
         },
         {
@@ -23,6 +23,7 @@ const RequisitionListContainer = ({listData, goTo, requisitionContainerName, sho
         {
             Header: "Status",
             accessor: "status",
+            style: {width: "10%"}
         },
 ], []);
     const [searchTerm, setSearchTerm] = useState("");
@@ -128,6 +129,9 @@ const RequisitionsListContainerStyled = styled.div`
             border-bottom: 2px solid var(--grey-light);
             padding: 1rem;
             width: auto;
+            :last-child {
+                width: 10%;
+            }
         }
     }
 `
