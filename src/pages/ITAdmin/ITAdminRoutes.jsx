@@ -6,6 +6,7 @@ import ITAdminSettingsRoutes from "./ITAdminSettingsRoutes";
 import ITAdminBidders from "./ITAdminBidders";
 import ITAdminRFQRoutes from "./ITAdminRFQRoutes";
 import ITAdminPurchaseContracts from "./ITAdminPurchaseContracts";
+import ITAdminPurchaseContractsDetails from "./ITAdminPurchaseContractsDetails";
 
 const ITAdminRoutes = () => {
     return (
@@ -17,6 +18,7 @@ const ITAdminRoutes = () => {
                 <Route  path="/bidders" element={<ITAdminBidders />} />
                 <Route  path="/request-for-quotes/*" element={<ITAdminRFQRoutes />} />
                 <Route  path="/purchase-contracts" element={<ITAdminPurchaseContracts />} />
+                <Route  path="/purchase-contracts/details" element={<ITAdminPurchaseContractsDetails />} />
             </Routes>
         </>
     )

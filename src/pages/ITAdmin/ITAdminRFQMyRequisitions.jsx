@@ -11,58 +11,60 @@ import RequisitionListContainer from "../../components/RequisitionListContainer"
 import ITAdminDashboardNavigationComponent from "./ITAdminDashboardNavigationComoponent";
 import ITAdminSubDashboardNav from "./ITAdminSubDashboardNav";
 
-
-
-
-
-
-
 const ITAdminRFQMyRequisitions = () => {
 
     const myRecentRequisitionsData = useMemo(() => [
         {
             rfqNo: "SD2568",
+            requesterName: "Jane Doe",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
             rfqNo: "SD2568",
+            requesterName: "Bello Fawaz",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
             rfqNo: "SD2568",
+            requesterName: "Amaka John",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
             rfqNo: "SD2568",
+            requesterName: "Stella Obi",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
-            rfqNo: "SD1564",
-            description: "IT infrastructure Service",
+            rfqNo: "SD2568",
+            requesterName: "John Snow",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Wale Mark",
+            description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: true
         },
         {
-            rfqNo: "SD1564",
-            description: "IT infrastructure Service",
-            expDateAndTime: "2022-01-28 14:53 GMT+1",
-            status: true
-        },
-        {
-            rfqNo: "SD1564",
-            description: "IT infrastructure Service",
+            rfqNo: "SD2568",
+            requesterName: "Bill Gate",
+            description: "IT infrastructure service",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: true
         },
     ], [])
+
 
     
     
@@ -105,7 +107,7 @@ const ITAdminRFQMyRequisitions = () => {
                     <ITAdminDashboardNavigationComponent requestForQuotesActive/>
                     <ITAdminSubDashboardNav myRequisitions myRequisitionsActive teamRequisitions otherRequistions shouldIncludeButton buttonName="Create New RFQ"/>
                     <AdminUsersStyled>
-                        <RequisitionListContainer requisitionContainerName="My Requisitions" listData={myRecentRequisitionsData} shouldIncludeSearchFilter/>
+                        <RequisitionListContainer requisitionContainerName="My Requisitions" listData={myRecentRequisitionsData} goTo="/it-admin/request-for-quotes/my-requisitions/details" shouldIncludeSearchFilter/>
                     </AdminUsersStyled>
                 </div>
             </ITAdminRFQMyRequisitionsStyled>

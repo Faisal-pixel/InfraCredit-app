@@ -16,7 +16,7 @@ import TechnicalTemplateDatasheet from "../../components/TechnicalTemplateDatash
 import GeneralOutlinedWhiteBgButton from "../../components/GeneralOutlinedWhiteBgButton";
 
 
-const ProcurementAdminRFQTeamRequisitionDetails = () => {
+const ITAdminRFQOtherRequisitionDetails = () => {
     const location = useLocation();
     const {row} = location.state;
     const [isNotificationOpen, setNotificationOpen] = useState(false);
@@ -45,18 +45,18 @@ const ProcurementAdminRFQTeamRequisitionDetails = () => {
                     openNotification={openNotification}
                     onContainerClick={onContainerClick}
             />
-        <ProcurementAdminRFQTeamRequisitionDetailsStyled className="page-container body">
+        <ITAdminRFQOtherRequisitionDetailsStyled className="page-container body">
             
-                <BreadCrumbsNavigation dashboardGoTo="/procurement-admin">
+                <BreadCrumbsNavigation dashboardGoTo="/it-admin/request-for-quotes/my-requisitions">
                     <BreadCrumbsFrameIcon />
-                    <BreadCrumbsNextName breadCrumbsNextName="Team Requisitions"/>
+                    <BreadCrumbsNextName breadCrumbsNextName="Other Requisitions"/>
                     <BreadCrumbsFrameIcon />
                     <BreadCrumbsNextName breadCrumbsNextName="Requisition Details" isActive/>
                 </BreadCrumbsNavigation>
 
                 <RequisitionDetailsButtons>
-                    <GeneralOutlinedWhiteBgButton buttonName="Approve"/>
-                    <GeneralOutlinedWhiteBgButton buttonName="Reject"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Reopen"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Close"/>
                 </RequisitionDetailsButtons>
 
                 <DetailsToggle title="General">
@@ -116,7 +116,7 @@ const ProcurementAdminRFQTeamRequisitionDetails = () => {
                 </DetailsToggle>
                 
 
-        </ProcurementAdminRFQTeamRequisitionDetailsStyled>
+        </ITAdminRFQOtherRequisitionDetailsStyled>
 
         {isNotificationOpen && (
                 <PortalPopup
@@ -131,7 +131,7 @@ const ProcurementAdminRFQTeamRequisitionDetails = () => {
     </>
 }
 
-const ProcurementAdminRFQTeamRequisitionDetailsStyled = styled.div`
+const ITAdminRFQOtherRequisitionDetailsStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -244,4 +244,4 @@ const DetailsDropdownStyled = styled.div`
 
 `
 
-export default ProcurementAdminRFQTeamRequisitionDetails;
+export default ITAdminRFQOtherRequisitionDetails;

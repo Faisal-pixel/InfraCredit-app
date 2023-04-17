@@ -55,8 +55,8 @@ const ProcurementAdminRFQMyRequisitionDetails = () => {
                 </BreadCrumbsNavigation>
 
                 <RequisitionDetailsButtons>
-                    <GeneralOutlinedWhiteBgButton buttonName="Reopen"/>
-                    <GeneralOutlinedWhiteBgButton buttonName="Close"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Save"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Delete"/>
                 </RequisitionDetailsButtons>
 
                 <DetailsToggle title="General">

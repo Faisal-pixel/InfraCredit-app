@@ -72,8 +72,6 @@ const ProcurementAdminRFQ = () => {
     ], [])
 
     
-    
-    
 
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     
