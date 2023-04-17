@@ -19,7 +19,6 @@ import GeneralOutlinedWhiteBgButton from "../../components/GeneralOutlinedWhiteB
 const BasicRequestorTeamRequisitionsDetails = () => {
     const location = useLocation();
     const {row} = location.state;
-    console.log(row)
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const navigate = useNavigate();
     const openNotification = useCallback(() => {
@@ -73,7 +72,7 @@ const BasicRequestorTeamRequisitionsDetails = () => {
                             </div>
                             <div className="requester-parent">
                                 <p>Requester:</p>
-                                <div>{row.requestorName}</div>
+                                <div>{row.requesterName}</div>
                             </div>
                             <div className="business-unit-parent">
                                 <p>Business Unit:</p>

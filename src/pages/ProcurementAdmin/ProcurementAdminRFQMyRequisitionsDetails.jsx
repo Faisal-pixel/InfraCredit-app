@@ -16,7 +16,7 @@ import TechnicalTemplateDatasheet from "../../components/TechnicalTemplateDatash
 import GeneralOutlinedWhiteBgButton from "../../components/GeneralOutlinedWhiteBgButton";
 
 
-const ProcurementAdminRequisitionDetails = () => {
+const ProcurementAdminRFQMyRequisitionDetails = () => {
     const location = useLocation();
     const {row} = location.state;
     const [isNotificationOpen, setNotificationOpen] = useState(false);
@@ -45,11 +45,11 @@ const ProcurementAdminRequisitionDetails = () => {
                     openNotification={openNotification}
                     onContainerClick={onContainerClick}
             />
-        <ProcurementAdminRequisitionDetailsStyled className="page-container body">
+        <ProcurementAdminRFQMyRequisitionDetailsStyled className="page-container body">
             
                 <BreadCrumbsNavigation dashboardGoTo="/procurement-admin">
                     <BreadCrumbsFrameIcon />
-                    <BreadCrumbsNextName breadCrumbsNextName="Records"/>
+                    <BreadCrumbsNextName breadCrumbsNextName="My Requisitions"/>
                     <BreadCrumbsFrameIcon />
                     <BreadCrumbsNextName breadCrumbsNextName="Requisition Details" isActive/>
                 </BreadCrumbsNavigation>
@@ -116,7 +116,7 @@ const ProcurementAdminRequisitionDetails = () => {
                 </DetailsToggle>
                 
 
-        </ProcurementAdminRequisitionDetailsStyled>
+        </ProcurementAdminRFQMyRequisitionDetailsStyled>
 
         {isNotificationOpen && (
                 <PortalPopup
@@ -131,7 +131,7 @@ const ProcurementAdminRequisitionDetails = () => {
     </>
 }
 
-const ProcurementAdminRequisitionDetailsStyled = styled.div`
+const ProcurementAdminRFQMyRequisitionDetailsStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -244,4 +244,4 @@ const DetailsDropdownStyled = styled.div`
 
 `
 
-export default ProcurementAdminRequisitionDetails;
+export default ProcurementAdminRFQMyRequisitionDetails;

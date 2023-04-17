@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const GeneralButton = ({type, buttonName}) => {
+const GeneralButton = ({type, buttonName, handleClick}) => {
     return (
-        <GeneralButtonStyled type={type} className="">{buttonName}</GeneralButtonStyled>
+        <GeneralButtonStyled onClick={handleClick} type={type} className="">{buttonName}</GeneralButtonStyled>
     )
 }
 
@@ -17,6 +17,9 @@ const GeneralButtonStyled = styled.button`
     justify-content: center;
     color: var(--white1);
     border: none;
+    :hover {
+        cursor: pointer;
+    }
 `
 
 export default GeneralButton;

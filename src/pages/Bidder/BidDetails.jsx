@@ -16,7 +16,7 @@ import DetailsToggle from "../../components/DetailsToggle";
 
 const BidDetails = () => {
     const location = useLocation();
-    const {listData} = location.state;
+    const {row} = location.state;
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const navigate = useNavigate();
     const openNotification = useCallback(() => {
@@ -61,7 +61,7 @@ const BidDetails = () => {
                         <div className="top">
                             <div className="rfq-no-parent">
                                 <p>RFQ No:</p>
-                                <div>{`${listData.rfqNo}:`}</div>
+                                <div>{`${row.rfqNo}:`}</div>
                             </div>
                             <div className="creation-date-parent">
                                 <p>Creation Date:</p>

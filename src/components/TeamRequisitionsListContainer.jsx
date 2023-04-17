@@ -2,24 +2,32 @@ import React, {useState, useMemo} from "react";
 import styled from "styled-components";
 import SearchButton from "./SearchButton";
 import SearchInput from "./SearchInput";
-import ReactTable from "./ReactTable"
+import ReactTableWithStatusColumn from "./ReactTableWithStatusColumn";
 
 
-const PurchaseContractsContainer = ({listData, goTo}) => {
+const TeamRequisitionsListContainer = ({listData, goTo, requisitionContainerName, shouldIncludeSearchFilter}) => {
     const columns = useMemo(() => [
             
         {
-            Header: "Contract No",
-            accessor: "contractNo"
+            Header: "RFQ No",
+            accessor: "rfqNo",
+        },
+        {
+            Header: "Requester Name",
+            accessor: "requesterName",
         },
         {
             Header: "Description",
-            accessor: "description"
+            accessor: "description",
         },
         {
-            Header: "Contract Date & Time",
-            accessor: "contractDateAndTime"
-        }
+            Header: "Expiration Date & Time",
+            accessor: "expDateAndTime",
+        },
+        {
+            Header: "Status",
+            accessor: "status",
+        },
 ], []);
     const [searchTerm, setSearchTerm] = useState("");
     const handleChange = (e) => {
@@ -27,34 +35,32 @@ const PurchaseContractsContainer = ({listData, goTo}) => {
     }
     const filteredlistData = listData.filter(data => {
       return (
-        data.contractNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        data.rfqNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
         data.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        data.contractDateAndTime.toLowerCase().includes(searchTerm.toLowerCase())
+        data.expDateAndTime.toLowerCase().includes(searchTerm.toLowerCase())
       )
     })
 
-    
-
     return <>
-        <PurchaseContractsContainerStyled>
+        <TeamRequisitionsListContainerStyled>
             <header>
                 <div className="title-name">
-                    Purchase Contracts
+                    {requisitionContainerName}
                 </div>
-                <div className="search-components">
+                {shouldIncludeSearchFilter && <div className="search-components">
                 <SearchInput placeholder="Search" searchTerm={searchTerm} handleChange={handleChange}/>
                 <SearchButton />
                 <img className="frame-icon" alt="" src="/frame3.svg" />
-                </div>
+                </div>}
             </header>
             <main className="list-table">
-                <ReactTable goTo={goTo} columns={columns} data={filteredlistData}/>
+                <ReactTableWithStatusColumn goTo={goTo} columns={columns} data={filteredlistData}/>
             </main>
-        </PurchaseContractsContainerStyled>
+        </TeamRequisitionsListContainerStyled>
     </>
 }
 
-const PurchaseContractsContainerStyled = styled.div`
+const TeamRequisitionsListContainerStyled = styled.div`
     align-self: stretch;
     border-radius: var(--br-3xs);
     background-color: var(--white1);
@@ -105,6 +111,7 @@ const PurchaseContractsContainerStyled = styled.div`
     main {
         width: 100%;
         table {
+        padding: 0 1rem;
         width: 100%;
         border-spacing: 0;
         table-layout: fixed;
@@ -125,14 +132,12 @@ const PurchaseContractsContainerStyled = styled.div`
             border-bottom: 2px solid var(--grey-light);
             padding: 1rem;
             width: auto;
-
             :last-child {
-                width: 25%;
+                width: 10%;
             }
         }
     }
 `
 
 
-
-export default PurchaseContractsContainer;
+export default TeamRequisitionsListContainer;

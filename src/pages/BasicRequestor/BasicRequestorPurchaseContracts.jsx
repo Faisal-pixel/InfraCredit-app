@@ -99,14 +99,6 @@ const BasicRequestorPurchaseContracts = () => {
                 <div className="body page-container">
                     <UserGreetings />
                     <DashboardNavigation myRequisitions teamRequisitions myPurchaseContracts myPurchaseContractsActive/>
-                    {/* <RecentRequisitionContainer
-                        listDataState={myPurchaseContractsDataState}
-                        recentRequisitionText="My Purchase Contracts"
-                        pending_svg_icon="/ellipse-84.svg"
-                        completed_svg_icon="/ellipse-85.svg"
-                        goTo="/basic-requestor/purchase-contracts/details"
-                        purchaseContracts
-                     /> */}
                      <PurchaseContractsContainer listData={purchaseContractsData} goTo="/basic-requestor/purchase-contracts/details"/>
                 </div>
             </BasicRequestorPurchaseContractsStyled>

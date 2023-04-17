@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import MainHeader from "../../components/MainHeader";
 import BreadCrumbsNavigation from "../../components/BreadCrumbsNavigation";
 import BreadCrumbsFrameIcon from "../../components/BreadCrumbsFrameIcon";
@@ -16,9 +16,7 @@ import TechnicalTemplateDatasheet from "../../components/TechnicalTemplateDatash
 import GeneralOutlinedWhiteBgButton from "../../components/GeneralOutlinedWhiteBgButton";
 
 
-const ProcurementAdminRequisitionDetails = () => {
-    const location = useLocation();
-    const {row} = location.state;
+const BasicRequestorCreateNewRFQ = () => {
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const navigate = useNavigate();
     const openNotification = useCallback(() => {
@@ -45,26 +43,26 @@ const ProcurementAdminRequisitionDetails = () => {
                     openNotification={openNotification}
                     onContainerClick={onContainerClick}
             />
-        <ProcurementAdminRequisitionDetailsStyled className="page-container body">
+        <BasicRequestorCreateNewRFQStyled className="page-container body">
             
-                <BreadCrumbsNavigation dashboardGoTo="/procurement-admin">
+                <BreadCrumbsNavigation dashboardGoTo="/basic-requestor">
                     <BreadCrumbsFrameIcon />
-                    <BreadCrumbsNextName breadCrumbsNextName="Records"/>
+                    <BreadCrumbsNextName breadCrumbsNextName="My Requisition"/>
                     <BreadCrumbsFrameIcon />
                     <BreadCrumbsNextName breadCrumbsNextName="Requisition Details" isActive/>
                 </BreadCrumbsNavigation>
 
-                <RequisitionDetailsButtons>
-                    <GeneralOutlinedWhiteBgButton buttonName="Reopen"/>
-                    <GeneralOutlinedWhiteBgButton buttonName="Close"/>
-                </RequisitionDetailsButtons>
+                <CreateNewRFQButtons>
+                    <GeneralOutlinedWhiteBgButton buttonName="Save"/>
+                    <GeneralOutlinedWhiteBgButton buttonName="Delete"/>
+                </CreateNewRFQButtons>
 
                 <DetailsToggle title="General">
                     <DetailsDropdownStyled>
                         <div className="top">
                             <div className="rfq-no-parent">
                                 <p>RFQ No:</p>
-                                <div>{row.rfqNo}</div>
+                                <div></div>
                             </div>
                             <div className="creation-date-parent">
                                 <p>Creation Date:</p>
@@ -72,7 +70,7 @@ const ProcurementAdminRequisitionDetails = () => {
                             </div>
                             <div className="requester-parent">
                                 <p>Requester:</p>
-                                <div>{row.requesterName}</div>
+                                <div></div>
                             </div>
                             <div className="business-unit-parent">
                                 <p>Business Unit:</p>
@@ -94,7 +92,7 @@ const ProcurementAdminRequisitionDetails = () => {
                         <div className="bottom">
                             <div className="requisition-status-parent">
                                 <p>Requisition Status: </p>
-                                <div>New</div>
+                                <div></div>
                             </div>
                         </div>
                     </DetailsDropdownStyled>
@@ -116,7 +114,7 @@ const ProcurementAdminRequisitionDetails = () => {
                 </DetailsToggle>
                 
 
-        </ProcurementAdminRequisitionDetailsStyled>
+        </BasicRequestorCreateNewRFQStyled>
 
         {isNotificationOpen && (
                 <PortalPopup
@@ -131,7 +129,7 @@ const ProcurementAdminRequisitionDetails = () => {
     </>
 }
 
-const ProcurementAdminRequisitionDetailsStyled = styled.div`
+const BasicRequestorCreateNewRFQStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -143,7 +141,7 @@ const ProcurementAdminRequisitionDetailsStyled = styled.div`
     gap: var(--gap-xl);
 `
 
-const RequisitionDetailsButtons = styled.div`
+const CreateNewRFQButtons = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -244,4 +242,4 @@ const DetailsDropdownStyled = styled.div`
 
 `
 
-export default ProcurementAdminRequisitionDetails;
+export default BasicRequestorCreateNewRFQ;

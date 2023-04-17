@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect} from "react";
+import React, {useState, useCallback, useEffect, useMemo} from "react";
 import {  useNavigate } from "react-router-dom";
 //IMPORT COMPONENTS
 import MainHeader from "../../components/MainHeader";
@@ -9,7 +9,7 @@ import DashboardNavigation from "../../components/DashboardNavigation";
 
 import styled from "styled-components";
 import ActivityStatus from "../../components/ActivityStatus";
-import RecentRequisitionContainer from "../../components/RecentRequisitionContainer";
+import RequisitionListContainer from "../../components/RequisitionListContainer";
 
 
 const activityStatusData = [
@@ -27,56 +27,56 @@ const activityStatusData = [
     }
 ]
 
-const myRecentRequisitionsData = [
-    {
-        rfqNo: "SD2568",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD1564",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: true
-    },
-    {
-        rfqNo: "SD1564",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: true
-    },
-    {
-        rfqNo: "SD1564",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: true
-    },
-]
 
 
 const BidderDashboard = () => {
+    const myRecentRequisitionsData = useMemo(() => [
+        {
+            rfqNo: "SD2568",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD1564",
+            description: "IT infrastructure Service",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: true
+        },
+        {
+            rfqNo: "SD1564",
+            description: "IT infrastructure Service",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: true
+        },
+        {
+            rfqNo: "SD1564",
+            description: "IT infrastructure Service",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: true
+        },
+    ], [])
+    
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const [activityStatusDataState, setActivityStatusDataState] = useState([]);
-    const [myRecentRequisitionsDataState, setMyRecentRequisitionsDataState] = useState([])
     const navigate = useNavigate();
 
     const openNotification = useCallback(() => {
@@ -93,7 +93,6 @@ const BidderDashboard = () => {
 
       useEffect(() => {
         setActivityStatusDataState(activityStatusData);
-        setMyRecentRequisitionsDataState(myRecentRequisitionsData)
       }, [])
 
     return(
@@ -115,14 +114,15 @@ const BidderDashboard = () => {
                     <UserGreetings />
                     <DashboardNavigation dashboard dashboardActive dashboardGoTo="/bidder-dashboard" requestForQuotes requestForQuotesGoTo="/bidder-dashboard/bidder-request-for-quotes" purchaseContracts purchaseContractsGoTo="/bidder-dashboard/bidder-purchase-contracts" issueResolution report profile/>
                     <ActivityStatus activityStatusData={activityStatusDataState} goTo="/bidder-dashboard/bidder-request-for-quotes" />
-                    <RecentRequisitionContainer
+                    {/* <RecentRequisitionContainer
                     listDataState={myRecentRequisitionsDataState}
                     shouldIncludeStatusSection
                     recentRequisitionText="My Recent Requisitions"
                     pending_svg_icon="/ellipse-84.svg"
                     completed_svg_icon="/ellipse-85.svg"
                     goTo="/bidder-dashboard/bid-details"
-                     />
+                     /> */}
+                     <RequisitionListContainer listData={myRecentRequisitionsData} goTo="/bidder-dashboard/bid-details" requisitionContainerName="My Recent Requisitions"/>
                 </div>
             </BidderDashboardStyled>
 

@@ -23,7 +23,6 @@ const RequisitionListContainer = ({listData, goTo, requisitionContainerName, sho
         {
             Header: "Status",
             accessor: "status",
-            style: {width: "10%"}
         },
 ], []);
     const [searchTerm, setSearchTerm] = useState("");

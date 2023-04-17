@@ -22,43 +22,50 @@ const ProcurementAdminRFQOtherRequisitions = () => {
     const myRecentRequisitionsData = useMemo(() => [
         {
             rfqNo: "SD2568",
+            requesterName: "Jane Doe",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
             rfqNo: "SD2568",
+            requesterName: "Bello Fawaz",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
             rfqNo: "SD2568",
+            requesterName: "Amaka John",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
             rfqNo: "SD2568",
+            requesterName: "Stella Obi",
             description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: false
         },
         {
-            rfqNo: "SD1564",
-            description: "IT infrastructure Service",
+            rfqNo: "SD2568",
+            requesterName: "John Snow",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Wale Mark",
+            description: "Building Maintenance",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: true
         },
         {
-            rfqNo: "SD1564",
-            description: "IT infrastructure Service",
-            expDateAndTime: "2022-01-28 14:53 GMT+1",
-            status: true
-        },
-        {
-            rfqNo: "SD1564",
-            description: "IT infrastructure Service",
+            rfqNo: "SD2568",
+            requesterName: "Bill Gate",
+            description: "IT infrastructure service",
             expDateAndTime: "2022-01-28 14:53 GMT+1",
             status: true
         },
@@ -105,7 +112,7 @@ const ProcurementAdminRFQOtherRequisitions = () => {
                     <ProcurementAdminDashboardNavigationComponent requestForQuotesActive/>
                     <SubDashboardNav myRequisitions teamRequisitions otherRequistions otherRequistionsActive/>
                     <AdminUsersStyled>
-                        <RequisitionListContainer requisitionContainerName="Other Requisitions" listData={myRecentRequisitionsData}/>
+                        <RequisitionListContainer requisitionContainerName="Other Requisitions" listData={myRecentRequisitionsData} goTo="/procurement-admin/request-for-quotes/other-requisitions/details"/>
                     </AdminUsersStyled>
                 </div>
             </ProcurementAdminRFQOtherRequisitionsStyled>

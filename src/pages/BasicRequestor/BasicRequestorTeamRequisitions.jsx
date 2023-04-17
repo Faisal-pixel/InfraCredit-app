@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect} from "react";
+import React, {useState, useCallback, useEffect, useMemo} from "react";
 import {  useNavigate } from "react-router-dom";
 //IMPORT COMPONENTS
 import MainHeader from "../../components/MainHeader";
@@ -9,7 +9,7 @@ import DashboardNavigation from "../../components/DashboardNavigation";
 
 import styled from "styled-components";
 import ActivityStatus from "../../components/ActivityStatus";
-import RequisitionListContainer from "../../components/RequisitionListContainer";
+import TeamRequisitionsListContainer from "../../components/TeamRequisitionsListContainer";
 
 
 const activityStatusData = [
@@ -39,63 +39,60 @@ const activityStatusData = [
     },
 ]
 
-const myRecentRequisitionsData = [
-    {
-        rfqNo: "SD2568",
-        requestorName: "Jane Doe",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        requestorName: "Bello Fawaz",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        requestorName: "Amaka John",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        requestorName: "Stella Obi",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        requestorName: "John Snow",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        requestorName: "Wale Mark",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: true
-    },
-    {
-        rfqNo: "SD2568",
-        requestorName: "Bill Gate",
-        description: "IT infrastructure service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: true
-    },
-]
-
-
 const BasicRequestorTeamRequisitions = () => {
+    const myRecentRequisitionsData = useMemo(() => [
+        {
+            rfqNo: "SD2568",
+            requesterName: "Jane Doe",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Bello Fawaz",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Amaka John",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Stella Obi",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "John Snow",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Wale Mark",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: true
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Bill Gate",
+            description: "IT infrastructure service",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: true
+        },
+    ], [])
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const [activityStatusDataState, setActivityStatusDataState] = useState([]);
-    const [myRecentRequisitionsDataState, setMyRecentRequisitionsDataState] = useState([])
     const navigate = useNavigate();
 
     const openNotification = useCallback(() => {
@@ -112,7 +109,6 @@ const BasicRequestorTeamRequisitions = () => {
 
       useEffect(() => {
         setActivityStatusDataState(activityStatusData);
-        setMyRecentRequisitionsDataState(myRecentRequisitionsData)
       }, [])
 
     return(
@@ -134,11 +130,7 @@ const BasicRequestorTeamRequisitions = () => {
                     <UserGreetings />
                     <DashboardNavigation myRequisitions teamRequisitions teamRequisitionsActive myPurchaseContracts/>
                     <ActivityStatus activityStatusData={activityStatusDataState} />
-                    <RequisitionListContainer 
-                        requisitionContainerName="Recent Requisitions"
-                        listData={myRecentRequisitionsDataState}
-                        goTo="/basic-requestor/team-requisitions/details"
-                    />
+                    <TeamRequisitionsListContainer requisitionContainerName="Recent Requisitons" listData={myRecentRequisitionsData} goTo="/basic-requestor/team-requisitions/details"/>
                 </div>
             </BasicRequestorTeamRequisitionsStyled>
 

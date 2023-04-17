@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect} from "react";
+import React, {useState, useCallback, useEffect, useMemo} from "react";
 import {  useNavigate } from "react-router-dom";
 //IMPORT COMPONENTS
 import MainHeader from "../../components/MainHeader";
@@ -9,7 +9,8 @@ import DashboardNavigation from "../../components/DashboardNavigation";
 
 import styled from "styled-components";
 import ActivityStatus from "../../components/ActivityStatus";
-import RecentRequisitionContainer from "../../components/RecentRequisitionContainer";
+import GeneralButton from "../../components/GeneralButton";
+import RequisitionListContainer from "../../components/RequisitionListContainer";
 
 
 const activityStatusData = [
@@ -39,63 +40,61 @@ const activityStatusData = [
     },
 ]
 
-const myRecentRequisitionsData = [
-    {
-        rfqNo: "SD2568",
-        requestorName: "John",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        requestorName: "Janet",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        requestorName: "Jackson",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD2568",
-        requestorName: "Snow",
-        description: "Building Maintenance",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: false
-    },
-    {
-        rfqNo: "SD1564",
-        requestorName: "Robert",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: true
-    },
-    {
-        rfqNo: "SD1564",
-        requestorName: "Josephine",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: true
-    },
-    {
-        rfqNo: "SD1564",
-        requestorName: "Maleek",
-        description: "IT infrastructure Service",
-        expDateAndTime: "2022-01-28 14:53 GMT+1",
-        status: true
-    },
-]
-
 
 const BasicRequestorDashboard = () => {
+    const myRecentRequisitionsData = useMemo(() => [
+        {
+            rfqNo: "SD2568",
+            requesterName: "Jane Doe",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Bello Fawaz",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Amaka John",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Stella Obi",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "John Snow",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: false
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Wale Mark",
+            description: "Building Maintenance",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: true
+        },
+        {
+            rfqNo: "SD2568",
+            requesterName: "Bill Gate",
+            description: "IT infrastructure service",
+            expDateAndTime: "2022-01-28 14:53 GMT+1",
+            status: true
+        },
+    ], [])
     const [isNotificationOpen, setNotificationOpen] = useState(false);
     const [activityStatusDataState, setActivityStatusDataState] = useState([]);
-    const [myRecentRequisitionsDataState, setMyRecentRequisitionsDataState] = useState([])
     const navigate = useNavigate();
 
     const openNotification = useCallback(() => {
@@ -112,8 +111,13 @@ const BasicRequestorDashboard = () => {
 
       useEffect(() => {
         setActivityStatusDataState(activityStatusData);
-        setMyRecentRequisitionsDataState(myRecentRequisitionsData)
       }, [])
+
+      // FUNCTIONS I CREATED
+
+      const onCreateNewRFQClick = () => {
+        navigate("/basic-requestor/create-new-rfq")
+      }
 
     return(
         <>
@@ -132,16 +136,12 @@ const BasicRequestorDashboard = () => {
                 />
                 <div className="body page-container">
                     <UserGreetings />
-                    <DashboardNavigation myRequisitions myRequisitionsActive teamRequisitions myPurchaseContracts/>
+                    <div style={{display: "flex"}}>
+                        <DashboardNavigation myRequisitions myRequisitionsActive teamRequisitions myPurchaseContracts/>
+                        <GeneralButton handleClick={() => onCreateNewRFQClick()} buttonName="Create new RFQ"/>
+                    </div>
                     <ActivityStatus activityStatusData={activityStatusDataState} />
-                    <RecentRequisitionContainer
-                    listDataState={myRecentRequisitionsDataState}
-                    shouldIncludeStatusSection
-                    recentRequisitionText="My Recent Requisitions"
-                    pending_svg_icon="/ellipse-84.svg"
-                    completed_svg_icon="/ellipse-85.svg"
-                    goTo="/basic-requestor/requisition-details"
-                     />
+                     <RequisitionListContainer requisitionContainerName="My Recent Requisitions" listData={myRecentRequisitionsData} goTo="/basic-requestor/requisition-details"/>
                 </div>
             </BasicRequestorDashboardStyled>
 
